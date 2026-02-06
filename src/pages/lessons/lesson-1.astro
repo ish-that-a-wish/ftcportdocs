@@ -1,0 +1,125 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LessonNav from '../../components/LessonNav.astro';
+---
+<Layout title="Lesson 1.01 — General Requirements">
+  <span class="lesson-badge">Lesson 1.01</span>
+  <h1>General Requirements</h1>
+  
+  <p>
+    Welcome to the first lesson. This covers the <strong>foundational requirements</strong> 
+    that every Engineering Portfolio needs to meet before diving into the details.
+  </p>
+
+  <h2>Why Requirements Matter</h2>
+  <p>
+    Judges review dozens of portfolios during competition. A portfolio that clearly meets 
+    all requirements is easier to score — and easier to score <em>well</em>. Missing a 
+    requirement can cost you a lot even if your technical work is exceptional.
+  </p>
+
+  <h2>Core Requirements</h2>
+  <p>These are all outlined in the game manual:</p>
+  <ol>
+    <li><strong>Page Limit</strong> — No more than 15 pages of content (excluding the cover)</li>
+    <li><strong>Cover Page</strong> — A cover page with your team number (name encouraged)</li>
+    <li><strong>Table of Contents</strong> — Makes navigation easy for judges and is highly recommended.</li>
+  </ol>
+
+  <div class="callout tip">
+    <strong><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: -0.15em; margin-right: 0.25em;"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>Pro Tip:</strong> Always check the current season's game manual for the exact requirements. 
+    Rules can change year to year!
+  </div>
+
+  <h2>Page Structure</h2>
+  <p>A typical Engineering Portfolio includes these sections:</p>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Section</th>
+        <th>Purpose</th>
+        <th>Typical Pages</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cover Page</td>
+        <td>Team identity, branding, table of contents</td>
+        <td>1 (not counted in total)</td>
+      </tr>
+      <tr>
+        <td>Team Overview</td>
+        <td>Intro to your team, roles, mission</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>Robot Subsystems Overview</td>
+        <td>Describe each component of your robot, what it does, and how it improved this season</td>
+        <td>3-5</td>
+      </tr>
+      <tr>
+        <td>Software/Programming</td>
+        <td>Highlight your software architecture, unique algorithms, and programming challenges</td>
+        <td>1-2</td>
+      </tr>
+      <tr>
+        <td>Finances and Sustainability</td>
+        <td>How your team recruits members, trains/builds skills, and manages finances</td>
+        <td>1-3</td>
+      </tr>
+      <tr>
+        <td>Community Impact</td>
+        <td>Describe your team's outreach, events, and STEM promotion efforts</td>
+        <td>2-3</td>
+      </tr>
+    </tbody>
+  </table>
+  That doesn't quite add up to 15, right? That's because you have flexibility to combine sections or add additional ones based on your team's unique story. The key is to make sure that all required content is included and that the overall narrative is clear and compelling.
+
+
+  <h2>Next Steps</h2>
+  <p>
+    Once you understand these general requirements, move on to learning about best practices 
+    to follow during the creation of your portfolio.
+  </p>
+
+  <LessonNav 
+    next={{ title: "Best Practices", href: "/lessons/lesson-2/" }}
+  />
+</Layout>
+
+<style>
+  .lesson-badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    background: var(--accent-faint);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    margin-top: 0.25rem;
+  }
+
+  .callout {
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-md);
+    margin: 1.5rem 0;
+  }
+
+  .callout.tip {
+    background: rgba(16, 185, 129, 0.08);
+    border-left: 3px solid #10b981;
+    color: var(--text-secondary);
+  }
+
+  [data-theme="dark"] .callout.tip {
+    background: rgba(16, 185, 129, 0.12);
+  }
+</style>

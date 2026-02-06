@@ -1,23 +1,137 @@
+---
+import Navbar from '../components/Navbar.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = 'EP Docs', description = '' } = Astro.props;
+const { frontmatter } = Astro.props as any;
+const pageTitle = frontmatter?.title ?? title;
+const pageDesc = frontmatter?.description ?? description;
+---
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    {pageDesc && <meta name="description" content={pageDesc} />}
+    <title>{pageTitle}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script is:inline>
+      (function() {
+        var t = localStorage.getItem('theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
+  </head>
+  <body>
+    <Navbar />
+    <main class="page-container">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p class="footer-credit">Fully designed and created by <strong>Ishika S</strong> from <span class="team-number">FTC 26336</span></p>
+        <p class="footer-meta">Built with Astro</p>
+      </div>
+    </footer>
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+  .page-container {
+    max-width: 780px;
+    margin: 1.5rem auto;
+    padding: 2rem 2.5rem 3rem;
+    background: var(--bg-surface);
+    backdrop-filter: blur(12px);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .site-footer {
+    max-width: 780px;
+    margin: 2rem auto 3rem;
+    padding: 1.5rem 2.5rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .site-footer p {
+    margin: 0;
+  }
+
+  .footer-credit {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .footer-credit strong {
+    color: var(--text-heading);
+    font-weight: 600;
+  }
+
+  .team-number {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    background: var(--accent-faint);
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    margin-left: 0.15rem;
+  }
+
+  .footer-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .page-container {
+      max-width: 100%;
+      margin: 1rem;
+      padding: 1.5rem 1.5rem 2.5rem;
+    }
+
+    .site-footer {
+      max-width: 100%;
+      margin: 1.5rem 1rem 2rem;
+      padding: 1.25rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .page-container {
+      margin: 0.5rem;
+      padding: 1rem 0.75rem 1.5rem;
+      border-radius: var(--radius-lg);
+    }
+
+    .site-footer {
+      margin: 0.75rem 0.5rem 1.5rem;
+      padding: 0.75rem;
+    }
+
+    .footer-credit {
+      font-size: 0.8rem;
+    }
+
+    .footer-meta {
+      font-size: 0.7rem;
+    }
+  }
 </style>

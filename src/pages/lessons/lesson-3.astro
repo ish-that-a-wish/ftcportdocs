@@ -1,0 +1,288 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LessonNav from '../../components/LessonNav.astro';
+---
+<Layout title="Lesson 1.03 — Design Process Documentation">
+  <span class="lesson-badge">Lesson 1.03</span>
+  <h1>Design Process Documentation</h1>
+  
+  <p>
+    The <strong>design process</strong> section is typically one of the highest-weighted parts of the 
+    Engineering Portfolio. This lesson covers how to document your team's journey from problem to solution.
+  </p>
+
+  <h2>The Engineering Design Process</h2>
+  <p>Most judges expect you to demonstrate a structured approach to problem-solving:</p>
+  
+  <div class="process-steps">
+    <div class="step">
+      <span class="step-num">1</span>
+      <div>
+        <strong>Define</strong>
+        <p>What problem are you solving?</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">2</span>
+      <div>
+        <strong>Research</strong>
+        <p>What solutions already exist?</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">3</span>
+      <div>
+        <strong>Brainstorm</strong>
+        <p>Generate multiple ideas</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">4</span>
+      <div>
+        <strong>Prototype</strong>
+        <p>Build quick models—either online or physical</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">5</span>
+      <div>
+        <strong>Test</strong>
+        <p>Gather data, evaluate options</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">6</span>
+      <div>
+        <strong>Iterate</strong>
+        <p>Improve based on results</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Problem Definition</h2>
+  <p>Start by clearly stating the challenge you're addressing:</p>
+  
+  <blockquote>
+    Our robot needs to lift game elements 24 inches high while staying within the 18" starting size constraint.
+  </blockquote>
+
+  <p>Include:</p>
+  <ul>
+    <li>Game requirements</li>
+    <li>Constraints (size, weight, rules)</li>
+    <li>Success criteria</li>
+  </ul>
+
+  <h2>Decision Matrix</h2>
+  <p>Document multiple design ideas, not just the final one. Create a decision matrix to compare options:</p>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Concept</th>
+        <th>Simplicity</th>
+        <th>Reliability</th>
+        <th>Speed</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Linear slide</td>
+        <td>8</td>
+        <td>9</td>
+        <td>7</td>
+        <td><strong>24/30</strong></td>
+      </tr>
+      <tr>
+        <td>Scissor lift</td>
+        <td>6</td>
+        <td>7</td>
+        <td>9</td>
+        <td><strong>22/30</strong></td>
+      </tr>
+      <tr>
+        <td>Arm mechanism</td>
+        <td>7</td>
+        <td>8</td>
+        <td>8</td>
+        <td><strong>23/30</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Document Your Iterations</h2>
+  <p>Show your iterative process with each version:</p>
+  
+  <div class="iteration-cards">
+    <div class="iteration">
+      <span class="iter-label">v1</span>
+      <h4>First Prototype</h4>
+      <ul>
+        <li>What you built</li>
+        <li>What you tested</li>
+        <li>Problems encountered</li>
+      </ul>
+    </div>
+    <div class="iteration">
+      <span class="iter-label">v2</span>
+      <h4>Second Iteration</h4>
+      <ul>
+        <li>Changes made</li>
+        <li>New test results</li>
+        <li>Improvements observed</li>
+      </ul>
+    </div>
+    <div class="iteration">
+      <span class="iter-label">v3</span>
+      <h4>Final Design</h4>
+      <ul>
+        <li>Final refinements</li>
+        <li>Performance metrics</li>
+        <li>Why you're confident</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout tip">
+    <strong><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: -0.15em; margin-right: 0.25em;"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>Data is King:</strong> Use quantitative data whenever possible. Instead of 
+    "The intake worked well," write "The intake had an 80% success rate with an average cycle time of 2.3 seconds."
+  </div>
+
+  <LessonNav 
+    prev={{ title: "Best Practices", href: "/lessons/lesson-2/" }}
+    next={{ title: "CAD & Drawings", href: "/lessons/lesson-4/" }}
+  />
+</Layout>
+
+<style>
+  .lesson-badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    background: var(--accent-faint);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    margin-top: 0.25rem;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+  }
+
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+  }
+
+  .step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.8rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .step strong {
+    display: block;
+    color: var(--text-heading);
+    margin-bottom: 0.15rem;
+  }
+
+  .step p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .iteration-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .iteration {
+    padding: 1.25rem;
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+  }
+
+  .iter-label {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    background: var(--accent-faint);
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+
+  .iteration h4 {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+    color: var(--text-heading);
+  }
+
+  .iteration ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.85rem;
+  }
+
+  .callout {
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-md);
+    margin: 1.5rem 0;
+  }
+
+  .callout.tip {
+    background: rgba(16, 185, 129, 0.08);
+    border-left: 3px solid #10b981;
+    color: var(--text-secondary);
+  }
+
+  [data-theme="dark"] .callout.tip {
+    background: rgba(16, 185, 129, 0.12);
+  }
+
+  @media (max-width: 768px) {
+    .process-steps {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .iteration-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .process-steps {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

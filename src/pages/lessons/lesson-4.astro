@@ -1,0 +1,277 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LessonNav from '../../components/LessonNav.astro';
+---
+<Layout title="Lesson 1.04 — CAD & Technical Drawings">
+  <span class="lesson-badge">Lesson 1.04</span>
+  <h1>CAD & Technical Drawings</h1>
+  
+  <p>
+    Computer-Aided Design (CAD) is a powerful tool for documenting your robot design. 
+    This lesson covers how to use CAD effectively in your Engineering Portfolio.
+  </p>
+
+  <h2>Why CAD Matters</h2>
+  <p>CAD demonstrates:</p>
+  <ul>
+    <li><strong>Planning</strong> — You thought through the design before building</li>
+    <li><strong>Precision</strong> — Exact measurements and specifications</li>
+    <li><strong>Iteration</strong> — Changes made throughout the season</li>
+    <li><strong>Communication</strong> — Clear visual representation of your robot</li>
+  </ul>
+
+  <h2>Types of CAD Views</h2>
+  <div class="view-grid">
+    <div class="view-card">
+      <div class="view-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg></div>
+      <h4>Isometric Views</h4>
+      <p>Overall robot from an angled perspective. Great for full robot overviews and assemblies.</p>
+    </div>
+    <div class="view-card">
+      <div class="view-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="12" x2="16" y2="12"></line><line x1="12" y1="8" x2="12" y2="16"></line><line x1="9.17" y1="14.83" x2="14.83" y2="9.17"></line><line x1="14.83" y1="14.83" x2="9.17" y2="9.17"></line></svg></div>
+      <h4>Exploded Views</h4>
+      <p>Show how components fit together. Useful for assembly order and highlighting parts.</p>
+    </div>
+    <div class="view-card">
+      <div class="view-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="M2 12h8"></path><path d="M14 12h8"></path><path d="M7 7l5 5-5 5"></path><path d="M17 7l-5 5 5 5"></path></svg></div>
+      <h4>Cross-Sections</h4>
+      <p>Cut through to show internal components like motor placement and gear ratios.</p>
+    </div>
+    <div class="view-card">
+      <div class="view-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg></div>
+      <h4>Orthographic</h4>
+      <p>Standard engineering views (top, front, side) for dimensional accuracy.</p>
+    </div>
+  </div>
+
+  <h2>Best Practices for CAD Screenshots</h2>
+  <ol>
+    <li><strong>High quality renders</strong> — Use good lighting and shadows</li>
+    <li><strong>Hide unnecessary parts</strong> — Focus on what matters</li>
+    <li><strong>Add annotations</strong> — Label key components</li>
+    <li><strong>Use consistent colors</strong> — Same part = same color across images</li>
+    <li><strong>Include scale</strong> — Add dimensions or reference objects</li>
+  </ol>
+
+  <h2>Show Your CAD Evolution</h2>
+  <div class="evolution">
+    <div class="evo-stage">
+      <span class="evo-label">Early Season</span>
+      <h4>Version 1</h4>
+      <ul>
+        <li>Initial concept</li>
+        <li>Basic geometry</li>
+        <li>Major components only</li>
+      </ul>
+    </div>
+    <div class="evo-arrow">→</div>
+    <div class="evo-stage">
+      <span class="evo-label">Mid Season</span>
+      <h4>Version 2</h4>
+      <ul>
+        <li>Refined dimensions</li>
+        <li>Added details</li>
+        <li>Integration tested</li>
+      </ul>
+    </div>
+    <div class="evo-arrow">→</div>
+    <div class="evo-stage">
+      <span class="evo-label">Competition</span>
+      <h4>Version 3</h4>
+      <ul>
+        <li>Final design</li>
+        <li>All hardware modeled</li>
+        <li>As-built docs</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Common CAD Mistakes</h2>
+  <div class="mistakes-grid">
+    <div class="mistake">
+      <span class="icon">❌</span>
+      <p>Low-resolution screenshots that look pixelated when printed</p>
+    </div>
+    <div class="mistake">
+      <span class="icon">❌</span>
+      <p>Cluttered images with too many parts visible</p>
+    </div>
+    <div class="mistake">
+      <span class="icon">❌</span>
+      <p>Missing dimensions or annotations</p>
+    </div>
+    <div class="mistake">
+      <span class="icon">❌</span>
+      <p>Only showing final design (not iterations)</p>
+    </div>
+  </div>
+
+  <div class="callout tip">
+    <strong><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: -0.15em; margin-right: 0.25em;"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>Pro Tip:</strong> Export your CAD screenshots at 2x resolution or higher. 
+    What looks good on screen often looks blurry when printed.
+  </div>
+
+  <LessonNav 
+    prev={{ title: "Design Process", href: "/lessons/lesson-3/" }}
+  />
+</Layout>
+
+<style>
+  .lesson-badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    background: var(--accent-faint);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    margin-top: 0.25rem;
+  }
+
+  .view-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .view-card {
+    padding: 1.25rem;
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+  }
+
+  .view-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .view-card h4 {
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+    color: var(--text-heading);
+  }
+
+  .view-card p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .evolution {
+    display: flex;
+    align-items: stretch;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+
+  .evo-stage {
+    flex: 1;
+    padding: 1.25rem;
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    min-width: 160px;
+  }
+
+  .evo-label {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    background: var(--accent-faint);
+    color: var(--accent);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+
+  .evo-stage h4 {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+    color: var(--text-heading);
+  }
+
+  .evo-stage ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.8rem;
+  }
+
+  .evo-arrow {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  .mistakes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+  }
+
+  .mistake {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: rgba(239, 68, 68, 0.06);
+    border-radius: var(--radius-sm);
+  }
+
+  .mistake .icon {
+    flex-shrink: 0;
+  }
+
+  .mistake p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  .callout {
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-md);
+    margin: 1.5rem 0;
+  }
+
+  .callout.tip {
+    background: rgba(16, 185, 129, 0.08);
+    border-left: 3px solid #10b981;
+    color: var(--text-secondary);
+  }
+
+  [data-theme="dark"] .callout.tip {
+    background: rgba(16, 185, 129, 0.12);
+  }
+
+  @media (max-width: 640px) {
+    .view-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .mistakes-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .evolution {
+      flex-direction: column;
+    }
+
+    .evo-arrow {
+      transform: rotate(90deg);
+      justify-content: center;
+    }
+  }
+</style>

@@ -1,0 +1,120 @@
+---
+interface Props {
+  prev?: { title: string; href: string };
+  next?: { title: string; href: string };
+}
+
+const { prev, next } = Astro.props;
+---
+
+{(prev || next) && (
+  <nav class="lesson-nav">
+    <div class="nav-buttons">
+      {prev ? (
+        <a href={prev.href} class="nav-btn prev">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          <span>
+            <small>Previous</small>
+            <strong>{prev.title}</strong>
+          </span>
+        </a>
+      ) : (
+        <div></div>
+      )}
+      
+      {next ? (
+        <a href={next.href} class="nav-btn next">
+          <span>
+            <small>Next</small>
+            <strong>{next.title}</strong>
+          </span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+      ) : (
+        <div></div>
+      )}
+    </div>
+  </nav>
+)}
+
+<style>
+  .lesson-nav {
+    margin: 3rem 0 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .nav-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    color: var(--text-primary);
+  }
+
+  .nav-btn:hover {
+    border-color: var(--border-accent);
+    background: var(--bg-surface-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+  }
+
+  .nav-btn.prev {
+    justify-content: flex-start;
+  }
+
+  .nav-btn.next {
+    justify-content: flex-end;
+    grid-column: 2;
+  }
+
+  .nav-btn span {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .nav-btn small {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-btn strong {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-heading);
+  }
+
+  .nav-btn svg {
+    flex-shrink: 0;
+    color: var(--accent);
+  }
+
+  @media (max-width: 640px) {
+    .nav-buttons {
+      grid-template-columns: 1fr;
+    }
+
+    .nav-btn.next {
+      grid-column: 1;
+    }
+  }
+</style>

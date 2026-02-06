@@ -1,11 +1,111 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
+<Layout title="Home">
+  <h1>Welcome to the FTC Portfolio Academy</h1>
+  <p>
+    This course is designed to help teams understand the basic requirements, learn helpful tips for construction, and design a clean, 
+    professional portfolio that makes it easy for judges to find what they're looking for.
+  </p>
 
-<Layout>
-	<Welcome />
+  <h2>Getting Started</h2>
+
+  <div class="card-grid">
+    <a href="/lessons/" class="card">
+      <h3>Lessons</h3>
+      <p>Use the navigation on each page to browse through the website. Each lesson 
+    builds on the previous one, so I recommend going through them in order.</p>
+    </a>
+	<a href="/resources/" class="card">
+	  <h3>Resources</h3>
+	  <p>A curated collection of tools and resources to help you create an outstanding Engineering Portfolio.</p>
+	</a>
+  </div>
+
+  <h2>What You'll Learn</h2>
+  <ul>
+    <li>Page-by-page content requirements</li>
+	<li>How to tune your work to the judged criteria</li>
+	<li>How to avoid text blobs</li>
+	<li>Styling and polishing your portfolio </li>
+	<li>High-quality options for printing </li>
+  </ul>
+
+  <blockquote>
+    <strong>Tip:</strong> A great portfolio tells the story of your season: the problems you faced, the decisions you made, and the results you achieved. Make sure that your portfolio is <strong>about that journey, not your final destination.</strong>
+  </blockquote>
+
+  <h2>Quick Reference</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Section</th>
+        <th>Key Focus</th>
+        <th>Weight</th>
+      </tr>
+    </thead>
+    <tbody>
+	  <tr>
+		<td>Structured Judged Interview</td>
+		<td>Judges Q & A + Team Presentation</td>
+		<td>30%</td>
+      </tr>
+      <tr>
+        <td>Engineering Portfolio</td>
+        <td>Record of your team's journey throughout the season</td>
+        <td>35%</td>
+      </tr>
+	  <tr>
+		<td>Pit Interviews</td>
+		<td>Judges visiting your pit and asking specific questions</td>
+		<td>40%</td>
+    </tbody>
+  </table>
 </Layout>
+
+<style>
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .card {
+    display: block;
+    padding: 1.25rem;
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.3s ease;
+  }
+
+  .card:hover {
+    border-color: var(--border-accent);
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+  }
+
+  .card h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+    color: var(--accent);
+  }
+
+  .card p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 480px) {
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .card {
+      padding: 1rem;
+    }
+  }
+</style>

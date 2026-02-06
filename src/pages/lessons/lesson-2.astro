@@ -1,0 +1,184 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LessonNav from '../../components/LessonNav.astro';
+---
+<Layout title="Lesson 1.02 — Best Practices">
+  <span class="lesson-badge">Lesson 1.02</span>
+  <h1>Best Practices</h1>
+  
+  <p>
+    This lesson covers essential best practices for creating your Engineering Portfolio. 
+    Following these guidelines will help you create a professional, easy-to-read document 
+    that judges will appreciate.
+  </p>
+
+  <h2>Formatting Guidelines</h2>
+  <p>Use consistent formatting throughout your portfolio:</p>
+  <ul>
+    <li><strong>Font</strong> — Stick to one or two readable fonts (e.g., Inter, Poppins, Montserrat)</li>
+    <li><strong>Headings</strong> — Use a clear hierarchy: H1 for sections, H2 for sub-sections.</li>
+    <li><strong>Font Size</strong> — 10pt minimum for body text, up to 18pt for headings</li>
+    <li><strong>Line Spacing</strong> — Use 1.15 to 1.5 for readability</li>
+    <li><strong>Margins</strong> — Keep them uniform; 0.5" to 1" is standard</li>
+    <li><strong>Images</strong> — Always include captions and labels</li>
+  </ul>
+
+  <div class="callout note">
+    <strong><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: -0.15em; margin-right: 0.25em;"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>Remember:</strong> Judges spend limited time on each portfolio. 
+    Make every page count by being concise and well-organized.
+  </div>
+
+  <h2>Visual Communication</h2>
+  <p>A picture is worth a thousand words, but only if it's done right:</p>
+  
+  <div class="two-column">
+    <div class="column do">
+      <h4>✅ Do</h4>
+      <ul>
+        <li>Use high-resolution images (300 DPI)</li>
+        <li>Include descriptive captions</li>
+        <li>Add labels and arrows</li>
+        <li>Show before/after comparisons</li>
+        <li>Keep diagrams clean and simple</li>
+      </ul>
+    </div>
+    <div class="column dont">
+      <h4>❌ Don't</h4>
+      <ul>
+        <li>Use blurry or pixelated photos</li>
+        <li>Leave images without context</li>
+        <li>Overcrowd with too many visuals</li>
+        <li>Use inconsistent styling</li>
+        <li>Forget to credit sources</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Common Mistakes</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Mistake</th>
+        <th>Why It Hurts</th>
+        <th>How to Fix</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>No page numbers</td>
+        <td>Judges can't reference sections</td>
+        <td>Add page numbers in footer/header</td>
+      </tr>
+      <tr>
+        <td>Wall of text</td>
+        <td>Hard to scan quickly</td>
+        <td>Break up with headings and visuals</td>
+      </tr>
+      <tr>
+        <td>Missing dates</td>
+        <td>Can't verify timeline</td>
+        <td>Date every entry or section</td>
+      </tr>
+      <tr>
+        <td>Tiny fonts</td>
+        <td>Strains readers' eyes</td>
+        <td>Use 11pt minimum for body text</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Writing Style</h2>
+  <p>Your portfolio should be professional but accessible:</p>
+  <ul>
+    <li><strong>Active voice</strong> — "We designed a mechanism" not "A mechanism was designed"</li>
+    <li><strong>Concise</strong> — Judges have limited time; get to the point</li>
+    <li><strong>Define terms</strong> — Explain technical terms the first time you use them</li>
+    <li><strong>Use bullet points</strong> — Have lists instead of long paragraphs</li>
+  </ul>
+
+  <LessonNav 
+    prev={{ title: "General Requirements", href: "/lessons/lesson-1/" }}
+    next={{ title: "Design Process", href: "/lessons/lesson-3/" }}
+  />
+</Layout>
+
+<style>
+  .lesson-badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    background: var(--accent-faint);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    margin-top: 0.25rem;
+  }
+
+  .callout {
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-md);
+    margin: 1.5rem 0;
+  }
+
+  .callout.note {
+    background: rgba(59, 130, 246, 0.08);
+    border-left: 3px solid #3b82f6;
+    color: var(--text-secondary);
+  }
+
+  [data-theme="dark"] .callout.note {
+    background: rgba(59, 130, 246, 0.12);
+  }
+
+  .two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .column {
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+  }
+
+  .column h4 {
+    margin: 0 0 0.75rem;
+    font-size: 1rem;
+  }
+
+  .column ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .column.do {
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+  }
+
+  .column.dont {
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+  }
+
+  [data-theme="dark"] .column.do {
+    background: rgba(16, 185, 129, 0.12);
+  }
+
+  [data-theme="dark"] .column.dont {
+    background: rgba(239, 68, 68, 0.12);
+  }
+
+  @media (max-width: 640px) {
+    .two-column {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

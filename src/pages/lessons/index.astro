@@ -1,0 +1,183 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LessonNav from '../../components/LessonNav.astro';
+---
+<Layout title="Lessons — FTCPA">
+  <h1>All Lessons</h1>
+  <p>
+    Work through these lessons in order to learn how to create an effective Engineering Portfolio.
+    Each lesson builds on the previous one.
+  </p>
+
+  <div class="lessons-list">
+    <a href="/lessons/lesson-1/" class="lesson-card">
+      <span class="lesson-number">01</span>
+      <div class="lesson-info">
+        <h3>General Requirements</h3>
+        <p>Portfolio requirements outlined in the Competition Manual — page limits, cover page, and table of contents.</p>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </a>
+
+    <a href="/lessons/lesson-2/" class="lesson-card">
+      <span class="lesson-number">02</span>
+      <div class="lesson-info">
+        <h3>Best Practices</h3>
+        <p>Essential formatting guidelines, common mistakes to avoid, and tips for creating a professional portfolio.</p>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </a>
+
+    <a href="/lessons/lesson-3/" class="lesson-card">
+      <span class="lesson-number">03</span>
+      <div class="lesson-info">
+        <h3>Design Process Documentation</h3>
+        <p>Learn how to document your engineering design journey — from problem definition to final iteration.</p>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </a>
+
+    <a href="/lessons/lesson-4/" class="lesson-card">
+      <span class="lesson-number">04</span>
+      <div class="lesson-info">
+        <h3>CAD & Technical Drawings</h3>
+        <p>Using CAD effectively in your portfolio — isometric views, exploded views, and best practices.</p>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </a>
+  </div>
+
+  <div class="start-cta">
+    <a href="/lessons/lesson-1/" class="btn-primary">
+      Start with Lesson 1
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </a>
+  </div>
+</Layout>
+
+<style>
+  h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  .lessons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 2rem 0;
+  }
+
+  .lesson-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .lesson-card:hover {
+    border-color: var(--border-accent);
+    background: var(--bg-surface-hover);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+  }
+
+  .lesson-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: var(--accent-faint);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+  }
+
+  .lesson-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .lesson-info h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1rem;
+    color: var(--text-heading);
+  }
+
+  .lesson-info p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  .lesson-card svg {
+    color: var(--text-muted);
+    flex-shrink: 0;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .lesson-card:hover svg {
+    color: var(--accent);
+    transform: translateX(4px);
+  }
+
+  .start-cta {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(109, 40, 217, 0.3);
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .btn-primary svg {
+    transition: transform 0.2s ease;
+  }
+
+  .btn-primary:hover svg {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 640px) {
+    .lesson-card {
+      padding: 1rem;
+    }
+    
+    .lesson-number {
+      width: 36px;
+      height: 36px;
+      font-size: 0.875rem;
+    }
+
+    .lesson-info p {
+      display: none;
+    }
+  }
+</style>
