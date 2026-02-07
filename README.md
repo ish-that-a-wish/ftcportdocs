@@ -1,46 +1,24 @@
-# Astro Starter Kit: Basics
+# FTC Engineering Portfolio Documentation
 
-```sh
-npm create astro@latest -- --template basics
-```
+A comprehensive guide and interactive website for FTC (FIRST Tech Challenge) teams to document and present their Engineering Portfolio. Built with [Astro](https://astro.build) and Starlight.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## About
 
-## 🚀 Project Structure
+This website provides structured lessons and best practices for creating high-quality engineering portfolio documentation. It covers the entire design process from problem definition through CAD drawings and design documentation.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Features
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+- **Interactive Lessons**: Step-by-step guidance on engineering portfolio documentation
+- **Design Process Framework**: Learn the standardized engineering design process
+- **Performance Tracking**: Examples of documenting measurable outcomes with graphs
+- **Modern Design**: Clean, responsive interface for all devices
+- **Best Practices**: Proven strategies for judges and portfolio reviewers
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Lessons Included
 
-## 🧞 Commands
+1. **Lesson 1.01** - Portfolio Presentation Fundamentals
+2. **Lesson 1.02** - Best Practices for Engineering Documentation
+3. **Lesson 1.03** - Design Process Documentation (with iterative outcome tracking)
+4. **Lesson 1.04** - CAD & Technical Drawings
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```bash
