@@ -20,5 +20,4 @@ This website provides structured lessons and best practices for creating high-qu
 2. **Lesson 1.02** - Best Practices for Engineering Documentation
 3. **Lesson 1.03** - Design Process Documentation (with iterative outcome tracking)
 4. **Lesson 1.04** - CAD & Technical Drawings
-
 ```bash
