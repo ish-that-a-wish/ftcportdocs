@@ -1,4 +1,4 @@
-# FTC Engineering Portfolio Documentation
+# FTC Engineering Portfolio Academy
 
 A comprehensive guide and interactive website for FTC (FIRST Tech Challenge) teams to document and present their Engineering Portfolio. Built with [Astro](https://astro.build) and Starlight.
 
