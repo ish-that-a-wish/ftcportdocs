@@ -1,10 +1,15 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import LessonNav from '../../components/LessonNav.astro';
+import LessonAudio from '../../components/LessonAudio.astro';
 ---
-<Layout title="Lesson 1.01 — General Requirements">
-  <span class="lesson-badge">Lesson 1.01</span>
-  <h1>General Requirements</h1>
+<Layout title="Lesson 2: General Requirements">
+  <div class="lesson-header">
+    <span class="lesson-badge">Lesson 2</span>
+    <h1>General Requirements</h1>
+    <p class="lesson-subtitle">The foundational requirements every Engineering Portfolio needs to meet.</p>
+    <LessonAudio slug="lesson-1" />
+  </div>
   
   <p>
     Welcome to the first lesson. This covers the <strong>foundational requirements</strong> 
@@ -14,16 +19,17 @@ import LessonNav from '../../components/LessonNav.astro';
   <h2>Why Requirements Matter</h2>
   <p>
     Judges review dozens of portfolios during competition. A portfolio that clearly meets 
-    all requirements is easier to score — and easier to score <em>well</em>. Missing a 
+    all requirements is easier to score (and easier to score <em>well</em>). Missing a 
     requirement can cost you a lot even if your technical work is exceptional.
   </p>
 
   <h2>Core Requirements</h2>
   <p>These are all outlined in the game manual:</p>
   <ol>
-    <li><strong>Page Limit</strong> — No more than 15 pages of content (excluding the cover)</li>
-    <li><strong>Cover Page</strong> — A cover page with your team number (name encouraged)</li>
-    <li><strong>Table of Contents</strong> — Makes navigation easy for judges and is highly recommended.</li>
+    <li><strong>Page Limit</strong>: No more than 15 pages of content (excluding the cover)</li>
+    <li><strong>Cover Page</strong>: A cover page with your team number (name encouraged)</li>
+    <li><strong>Page Size</strong>: US Letter (8.5in x 11in) or A4 (210mm x 297mm) paper. No other sizes are acceptable.</li>
+    <li><strong>Table of Contents</strong>: Makes navigation easy for judges and is highly recommended.</li>
   </ol>
 
   <div class="callout tip">
@@ -85,41 +91,9 @@ import LessonNav from '../../components/LessonNav.astro';
   </p>
 
   <LessonNav 
+    prev={{ title: "How to Use This Tutorial", href: "/lessons/lesson-0/" }}
     next={{ title: "Best Practices", href: "/lessons/lesson-2/" }}
   />
 </Layout>
 
-<style>
-  .lesson-badge {
-    display: inline-block;
-    padding: 0.35rem 0.75rem;
-    background: var(--accent-faint);
-    color: var(--accent);
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: var(--radius-sm);
-    margin-bottom: 0.5rem;
-  }
 
-  h1 {
-    margin-top: 0.25rem;
-  }
-
-  .callout {
-    padding: 1rem 1.25rem;
-    border-radius: var(--radius-md);
-    margin: 1.5rem 0;
-  }
-
-  .callout.tip {
-    background: rgba(16, 185, 129, 0.08);
-    border-left: 3px solid #10b981;
-    color: var(--text-secondary);
-  }
-
-  [data-theme="dark"] .callout.tip {
-    background: rgba(16, 185, 129, 0.12);
-  }
-</style>

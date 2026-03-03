@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LessonNav from '../../components/LessonNav.astro';
+import LessonAudio from '../../components/LessonAudio.astro';
+---
+<Layout title="Lesson 1: How to Use This Tutorial">
+  <div class="lesson-header">
+    <span class="lesson-badge">Lesson 1</span>
+    <h1>How to Use This Tutorial</h1>
+    <p class="lesson-subtitle">Learn how this tutorial is organized and how to navigate through the lessons.</p>
+    <LessonAudio slug="lesson-0" />
+  </div>
+
+  <p>
+    This tutorial is designed to help you create an effective Engineering Portfolio for FTC competitions.
+  </p>
+
+  <h2>Tutorial Structure</h2>
+  <p>The lessons are organized into three sections:</p>
+  <ul>
+    <li><strong>Getting Started</strong>: You're here! An intro to how this tutorial works.</li>
+    <li><strong>Good Practices & Requirements</strong>: Foundation lessons on what judges expect.</li>
+    <li><strong>Pages & Documentation</strong>: Step-by-step guides for each portfolio section.</li>
+  </ul>
+
+  <h2>How to Navigate</h2>
+  <p>
+    Use the <strong>Previous</strong> and <strong>Next</strong> buttons at the bottom of each lesson to move through the content in order.
+    You can also head to the <a href="/lessons/">Lessons</a> page at any time to jump to a specific lesson.
+  </p>
+
+  <h2>Light & Dark Mode</h2>
+  <p>
+    Prefer reading in a darker environment? Click the <strong>sun/moon icon</strong> in the top-right corner of the
+    navigation bar to switch between light and dark mode. Your preference is saved automatically.
+  </p>
+
+  <h2>Accessibility Settings</h2>
+  <p>
+    Next to the theme toggle you'll find an <strong>accessibility icon</strong> (the person figure). Click it to open
+    a menu with options to customize your experience:
+  </p>
+  <ul>
+    <li><strong>Audio Narration</strong>: Turns on a "Listen to this lesson" button at the top of every lesson. If a recorded reading exists it plays that; otherwise your browser reads the lesson text aloud.</li>
+    <li><strong>High Contrast</strong>: Boosts text and background contrast for easier reading.</li>
+    <li><strong>Larger Text</strong>: Increases font sizes across the whole site.</li>
+    <li><strong>Reduce Motion</strong>: Disables animations and transitions.</li>
+    <li><strong>Link Underlines</strong>: Adds underlines to all links so they're easier to spot.</li>
+  </ul>
+  <p>All settings are saved in your browser, so they'll still be active the next time you visit.</p>
+
+  <LessonNav 
+    next={{ title: "General Requirements", href: "/lessons/lesson-1/" }}
+  />
+</Layout>
+
+

@@ -1,18 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import LessonNav from '../../components/LessonNav.astro';
+import LessonAudio from '../../components/LessonAudio.astro';
 ---
-<Layout title="Lesson 1.03 — Design Process Documentation">
-  <span class="lesson-badge">Lesson 1.03</span>
-  <h1>Design Process Documentation</h1>
-  
+<Layout title="Lesson 5: Design Process Documentation">
+  <div class="lesson-header">
+    <span class="lesson-badge">Lesson 5</span>
+    <h1>Design Process Documentation</h1>
+    <p class="lesson-subtitle">Document your team's engineering journey from problem to solution.</p>
+    <LessonAudio slug="lesson-3" />
+  </div>
+
   <p>
     The <strong>design process</strong> section is typically one of the highest-weighted parts of the 
     Engineering Portfolio. This lesson covers how to document your team's journey from problem to solution.
   </p>
 
   <h2>The Engineering Design Process</h2>
-  <p>Most judges expect you to demonstrate a structured approach to problem-solving:</p>
+  <p>This is a standardized process used by engineers worldwide to tackle complex problems systematically. The key is presenting how your team used this process throughout the season to improve your robot.</p>
+  <p>Here is the process:</p>
   
   <div class="process-steps">
     <div class="step">
@@ -33,28 +39,28 @@ import LessonNav from '../../components/LessonNav.astro';
       <span class="step-num">3</span>
       <div>
         <strong>Brainstorm</strong>
-        <p>Generate multiple ideas</p>
+        <p>What can we do to solve this?</p>
       </div>
     </div>
     <div class="step">
       <span class="step-num">4</span>
       <div>
         <strong>Prototype</strong>
-        <p>Build quick models—either online or physical</p>
+        <p>Can this be built in real life?</p>
       </div>
     </div>
     <div class="step">
       <span class="step-num">5</span>
       <div>
         <strong>Test</strong>
-        <p>Gather data, evaluate options</p>
+        <p>How does this perform under real conditions?</p>
       </div>
     </div>
     <div class="step">
       <span class="step-num">6</span>
       <div>
         <strong>Iterate</strong>
-        <p>Improve based on results</p>
+        <p>How can this be improved?</p>
       </div>
     </div>
   </div>
@@ -63,7 +69,7 @@ import LessonNav from '../../components/LessonNav.astro';
   <p>Start by clearly stating the challenge you're addressing:</p>
   
   <blockquote>
-    Our robot needs to lift game elements 24 inches high while staying within the 18" starting size constraint.
+    Our robot needs to launch game elements 54 inches high while staying within the 18" x 18" x 18" starting size constraint.
   </blockquote>
 
   <p>Include:</p>
@@ -73,43 +79,103 @@ import LessonNav from '../../components/LessonNav.astro';
     <li>Success criteria</li>
   </ul>
 
-  <h2>Decision Matrix</h2>
-  <p>Document multiple design ideas, not just the final one. Create a decision matrix to compare options:</p>
+  <h2>Iterations</h2>
+  <p>Document multiple design ideas, not just the final one. Create a graph, decision matrix, or table to compare results:</p>
   
   <table>
     <thead>
       <tr>
-        <th>Concept</th>
+        <th>Iteration</th>
         <th>Simplicity</th>
         <th>Reliability</th>
-        <th>Speed</th>
+        <th>Efficiency</th>
         <th>Total</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Linear slide</td>
-        <td>8</td>
-        <td>9</td>
-        <td>7</td>
-        <td><strong>24/30</strong></td>
-      </tr>
-      <tr>
-        <td>Scissor lift</td>
+        <td>V1</td>
+        <td>5</td>
+        <td>4</td>
         <td>6</td>
-        <td>7</td>
-        <td>9</td>
-        <td><strong>22/30</strong></td>
+        <td><strong>15/30</strong></td>
       </tr>
       <tr>
-        <td>Arm mechanism</td>
+        <td>V2</td>
         <td>7</td>
+        <td>6</td>
         <td>8</td>
+        <td><strong>21/30</strong></td>
+      </tr>
+      <tr>
+        <td>V3</td>
+        <td>9</td>
         <td>8</td>
-        <td><strong>23/30</strong></td>
+        <td>9</td>
+        <td><strong>26/30</strong></td>
       </tr>
     </tbody>
   </table>
+
+  <h2>Document Your Iterations With Measurable Outcomes</h2>
+  <p>Don't just show different versions (demonstrate the <strong>real impact</strong> of your design choices with quantitative data). Track meaningful metrics across your iterations to prove that each change led to measurable improvements. This transforms your design story from "we tried different things" into "we systematically optimized performance."</p>
+
+  <h3>Example: Measuring Shooting Time Progress</h3>
+  <p>Here's how to document iteration outcomes using concrete performance data. By measuring shooting cycle time across your competition season, you can visually demonstrate the impact of your design decisions:</p>
+  
+  <div class="graph-container">
+    <svg viewBox="0 0 650 350" xmlns="http://www.w3.org/2000/svg" class="progress-graph">
+      <!-- Grid lines -->
+      <line x1="90" y1="280" x2="620" y2="280" stroke="var(--border)" stroke-width="2"/>
+      <line x1="90" y1="30" x2="90" y2="280" stroke="var(--border)" stroke-width="2"/>
+      
+      <!-- Y-axis labels (time in seconds) -->
+      <text x="80" y="285" font-size="12" text-anchor="end" fill="var(--text-muted)">0s</text>
+      <text x="80" y="245" font-size="12" text-anchor="end" fill="var(--text-muted)">2.5s</text>
+      <text x="80" y="205" font-size="12" text-anchor="end" fill="var(--text-muted)">5s</text>
+      <text x="80" y="165" font-size="12" text-anchor="end" fill="var(--text-muted)">7.5s</text>
+      <text x="80" y="125" font-size="12" text-anchor="end" fill="var(--text-muted)">10s</text>
+      
+      <!-- Horizontal grid lines -->
+      <line x1="90" y1="240" x2="620" y2="240" stroke="var(--border)" stroke-width="1" stroke-dasharray="4"/>
+      <line x1="90" y1="200" x2="620" y2="200" stroke="var(--border)" stroke-width="1" stroke-dasharray="4"/>
+      <line x1="90" y1="160" x2="620" y2="160" stroke="var(--border)" stroke-width="1" stroke-dasharray="4"/>
+      <line x1="90" y1="120" x2="620" y2="120" stroke="var(--border)" stroke-width="1" stroke-dasharray="4"/>
+      
+      <!-- Data points and line -->
+      <polyline points="130,30 220,57.5 310,205 400,242.5 490,267.5" stroke="var(--accent)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      
+      <!-- Data point circles -->
+      <circle cx="130" cy="30" r="5" fill="var(--accent)"/>
+      <circle cx="220" cy="57.5" r="5" fill="var(--accent)"/>
+      <circle cx="310" cy="205" r="5" fill="var(--accent)"/>
+      <circle cx="400" cy="242.5" r="5" fill="var(--accent)"/>
+      <circle cx="490" cy="267.5" r="5" fill="var(--accent)"/>
+      
+      <!-- X-axis labels (meets) -->
+      <text x="130" y="310" font-size="12" text-anchor="middle" fill="var(--text-muted)">LM1</text>
+      <text x="220" y="310" font-size="12" text-anchor="middle" fill="var(--text-muted)">LM2</text>
+      <text x="310" y="310" font-size="12" text-anchor="middle" fill="var(--text-muted)">LT</text>
+      <text x="400" y="310" font-size="12" text-anchor="middle" fill="var(--text-muted)">SQ</text>
+      <text x="490" y="310" font-size="12" text-anchor="middle" fill="var(--text-muted)">CMP</text>
+      
+      <!-- Axis labels -->
+      <text x="355" y="340" font-size="13" font-weight="600" text-anchor="middle" fill="var(--text-secondary)">Competition Timeline</text>
+      <text x="10" y="150" font-size="13" font-weight="600" text-anchor="middle" fill="var(--text-secondary)" transform="rotate(-90 10 150)">Shooting Time (seconds)</text>
+    </svg>
+  </div>
+
+  <p><strong>What This Shows:</strong> Starting at 10 seconds per 3 artifacts shot at LM1, we made <em>minimal improvements</em> by LM2 (9.5s). However, between LM2 and League Tournament we achieved a major breakthrough, dropping to 3 seconds through a fundamental design change. Continued optimization led to 1.5 seconds at Semifinals and finally 0.5 seconds at State.</p>
+
+  <ul>
+    <li><strong>LM1 (10s):</strong> Initial design with static launch</li>
+    <li><strong>LM2 (9.5s):</strong> Minor tuning of PIDF</li>
+    <li><strong>LT (3s):</strong> Added a second motor to the flywheel</li>
+    <li><strong>SQ (1.5s):</strong> Implemented automated firing sequence</li>
+    <li><strong>CMP (0.5s):</strong> Increased flywheel weights</li>
+  </ul>
+
+  <p><strong>Why Judges Care:</strong> This type of documentation proves you understand the connection between <em>design decisions</em> and <em>measurable results</em>. It shows systematic problem-solving, not luck. Quantitative improvement data is far more compelling than qualitative descriptions.</p>
 
   <h2>Document Your Iterations</h2>
   <p>Show your iterative process with each version:</p>
@@ -150,29 +216,12 @@ import LessonNav from '../../components/LessonNav.astro';
   </div>
 
   <LessonNav 
-    prev={{ title: "Best Practices", href: "/lessons/lesson-2/" }}
-    next={{ title: "CAD & Drawings", href: "/lessons/lesson-4/" }}
+    prev={{ title: "Team Overview", href: "/lessons/lesson-4/" }}
+    next={{ title: "CAD & Technical Drawings", href: "/lessons/lesson-5/" }}
   />
 </Layout>
 
 <style>
-  .lesson-badge {
-    display: inline-block;
-    padding: 0.35rem 0.75rem;
-    background: var(--accent-faint);
-    color: var(--accent);
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: var(--radius-sm);
-    margin-bottom: 0.5rem;
-  }
-
-  h1 {
-    margin-top: 0.25rem;
-  }
-
   .process-steps {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -254,20 +303,19 @@ import LessonNav from '../../components/LessonNav.astro';
     font-size: 0.85rem;
   }
 
-  .callout {
-    padding: 1rem 1.25rem;
-    border-radius: var(--radius-md);
+  .graph-container {
     margin: 1.5rem 0;
+    padding: 1rem;
+    background: var(--bg-surface-solid);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    overflow-x: auto;
   }
 
-  .callout.tip {
-    background: rgba(16, 185, 129, 0.08);
-    border-left: 3px solid #10b981;
-    color: var(--text-secondary);
-  }
-
-  [data-theme="dark"] .callout.tip {
-    background: rgba(16, 185, 129, 0.12);
+  .progress-graph {
+    width: 100%;
+    height: auto;
+    min-height: 350px;
   }
 
   @media (max-width: 768px) {

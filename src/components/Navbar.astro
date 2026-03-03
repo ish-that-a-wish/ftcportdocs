@@ -4,14 +4,17 @@ const currentPath = Astro.url.pathname;
 <header class="site-header">
   <div class="header-inner">
     <div class="header-left">
-      <a href="/" class="site-title">FTCPA</a>
-      <i class="fa-solid fa-kiwi-bird kiwi-icon" aria-hidden="true" title="Kiwi bird"></i>
+      <a href="/" class="site-title">FTCPD</a>
+    <a href="/" class="splotch-icon" title="Splotch" aria-label="Splotch">
+        <i class="fa-solid fa-splotch" aria-hidden="true"></i>
+    </a>
     </div>
     <div class="header-right">
       <nav id="nav-menu">
         <a href="/" class:list={["nav-link", { active: currentPath === "/" }]}>Home</a>
         <a href="/lessons/" class:list={["nav-link", { active: currentPath.startsWith("/lessons") }]}>Lessons</a>
         <a href="/resources/" class:list={["nav-link", { active: currentPath.startsWith("/resources") }]}>Resources</a>
+        <a href="/about/" class:list={["nav-link", { active: currentPath.startsWith("/about") }]}>About</a>
       </nav>
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
         <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -29,6 +32,75 @@ const currentPath = Astro.url.pathname;
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
       </button>
+      <!-- Accessibility menu -->
+      <div class="a11y-wrapper">
+        <button class="a11y-toggle" id="a11y-toggle" aria-label="Accessibility settings" title="Accessibility settings">
+          <i class="fa-solid fa-universal-access" aria-hidden="true"></i>
+        </button>
+        <div class="a11y-menu" id="a11y-menu" role="dialog" aria-label="Accessibility settings">
+          <div class="a11y-menu-header">
+            <span class="a11y-menu-title">Accessibility</span>
+            <button class="a11y-reset" id="a11y-reset" type="button" title="Reset all settings">Reset</button>
+          </div>
+          <div class="a11y-options">
+            <label class="a11y-option">
+              <div class="a11y-option-info">
+                <span class="a11y-option-icon"><i class="fa-solid fa-volume-high"></i></span>
+                <div>
+                  <span class="a11y-option-name">Audio Narration</span>
+                  <span class="a11y-option-desc">Show listen button on lessons</span>
+                </div>
+              </div>
+              <input type="checkbox" id="a11y-audio" class="a11y-check" />
+              <span class="a11y-switch"></span>
+            </label>
+            <label class="a11y-option">
+              <div class="a11y-option-info">
+                <span class="a11y-option-icon"><i class="fa-solid fa-circle-half-stroke"></i></span>
+                <div>
+                  <span class="a11y-option-name">High Contrast</span>
+                  <span class="a11y-option-desc">Boost text &amp; background contrast</span>
+                </div>
+              </div>
+              <input type="checkbox" id="a11y-contrast" class="a11y-check" />
+              <span class="a11y-switch"></span>
+            </label>
+            <label class="a11y-option">
+              <div class="a11y-option-info">
+                <span class="a11y-option-icon"><i class="fa-solid fa-font"></i></span>
+                <div>
+                  <span class="a11y-option-name">Larger Text</span>
+                  <span class="a11y-option-desc">Increase font size site-wide</span>
+                </div>
+              </div>
+              <input type="checkbox" id="a11y-large-text" class="a11y-check" />
+              <span class="a11y-switch"></span>
+            </label>
+            <label class="a11y-option">
+              <div class="a11y-option-info">
+                <span class="a11y-option-icon"><i class="fa-solid fa-minimize"></i></span>
+                <div>
+                  <span class="a11y-option-name">Reduce Motion</span>
+                  <span class="a11y-option-desc">Disable animations &amp; transitions</span>
+                </div>
+              </div>
+              <input type="checkbox" id="a11y-reduce-motion" class="a11y-check" />
+              <span class="a11y-switch"></span>
+            </label>
+            <label class="a11y-option">
+              <div class="a11y-option-info">
+                <span class="a11y-option-icon"><i class="fa-solid fa-underline"></i></span>
+                <div>
+                  <span class="a11y-option-name">Link Underlines</span>
+                  <span class="a11y-option-desc">Underline all links for visibility</span>
+                </div>
+              </div>
+              <input type="checkbox" id="a11y-underlines" class="a11y-check" />
+              <span class="a11y-switch"></span>
+            </label>
+          </div>
+        </div>
+      </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span>
         <span></span>
@@ -69,11 +141,113 @@ const currentPath = Astro.url.pathname;
       });
     });
   }
+  function initA11yMenu() {
+    const toggle = document.getElementById('a11y-toggle');
+    const menu = document.getElementById('a11y-menu');
+    const resetBtn = document.getElementById('a11y-reset');
+    if (!toggle || !menu) return;
+
+    // Prevent double-init
+    if ((toggle as any)._a11yInit) return;
+    (toggle as any)._a11yInit = true;
+
+    // Toggle menu open/close
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = menu.classList.toggle('open');
+      toggle.classList.toggle('active', isOpen);
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!menu.contains(e.target as Node) && !toggle.contains(e.target as Node)) {
+        menu.classList.remove('open');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('open')) {
+        menu.classList.remove('open');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.focus();
+      }
+    });
+
+    // A11y settings map: checkbox id → html data attribute
+    const settings: Record<string, string> = {
+      'a11y-audio': 'data-a11y-audio',
+      'a11y-contrast': 'data-a11y-contrast',
+      'a11y-large-text': 'data-a11y-large-text',
+      'a11y-reduce-motion': 'data-a11y-reduce-motion',
+      'a11y-underlines': 'data-a11y-underlines',
+    };
+
+    const html = document.documentElement;
+
+    function applySetting(id: string, attr: string, enabled: boolean) {
+      if (enabled) {
+        html.setAttribute(attr, '');
+      } else {
+        html.removeAttribute(attr);
+      }
+      localStorage.setItem(id, String(enabled));
+
+      // Stop any running TTS when audio narration is turned off
+      if (id === 'a11y-audio' && !enabled && 'speechSynthesis' in window) {
+        speechSynthesis.cancel();
+      }
+    }
+
+    // Restore saved preferences & sync checkboxes
+    for (const [id, attr] of Object.entries(settings)) {
+      const cb = document.getElementById(id) as HTMLInputElement | null;
+      if (!cb) continue;
+      const saved = localStorage.getItem(id);
+      if (saved === 'true') {
+        cb.checked = true;
+        html.setAttribute(attr, '');
+      } else {
+        cb.checked = false;
+        html.removeAttribute(attr);
+      }
+    }
+
+    // Listen for changes
+    for (const [id, attr] of Object.entries(settings)) {
+      const cb = document.getElementById(id) as HTMLInputElement | null;
+      if (!cb) continue;
+      cb.addEventListener('change', () => {
+        applySetting(id, attr, cb.checked);
+      });
+    }
+
+    // Reset all settings
+    if (resetBtn) {
+      resetBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        for (const [id, attr] of Object.entries(settings)) {
+          const cb = document.getElementById(id) as HTMLInputElement | null;
+          if (!cb) continue;
+          cb.checked = false;
+          applySetting(id, attr, false);
+        }
+      });
+    }
+  }
+
   initThemeToggle();
   initHamburger();
+  initA11yMenu();
   document.addEventListener('astro:after-swap', () => {
     initThemeToggle();
     initHamburger();
+    initA11yMenu();
   });
 </script>
 
@@ -196,6 +370,184 @@ const currentPath = Astro.url.pathname;
   :global([data-theme="dark"]) .icon-sun  { display: none; }
   :global([data-theme="dark"]) .icon-moon { display: block; }
 
+  /* ── Accessibility menu ────────────────────── */
+  .a11y-wrapper {
+    position: relative;
+  }
+
+  .a11y-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--bg-surface-solid);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    flex-shrink: 0;
+    padding: 0;
+    font-size: 1.15rem;
+  }
+
+  .a11y-toggle:hover,
+  .a11y-toggle.active {
+    background: var(--nav-hover-bg);
+    color: var(--accent);
+    border-color: var(--border-accent);
+  }
+
+  .a11y-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 290px;
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    z-index: 200;
+    overflow: hidden;
+    animation: a11ySlideIn 0.18s ease;
+  }
+
+  .a11y-menu.open {
+    display: block;
+  }
+
+  @keyframes a11ySlideIn {
+    from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .a11y-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .a11y-menu-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-heading);
+  }
+
+  .a11y-reset {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: none;
+    border: none;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .a11y-reset:hover {
+    background: var(--accent-faint);
+    color: var(--accent-hover);
+  }
+
+  .a11y-options {
+    padding: 0.35rem 0;
+  }
+
+  .a11y-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.55rem 1rem;
+    cursor: pointer;
+    transition: background 0.12s ease;
+    user-select: none;
+    gap: 0.7rem;
+  }
+
+  .a11y-option:hover {
+    background: var(--nav-hover-bg);
+  }
+
+  .a11y-option-info {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .a11y-option-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: var(--accent-faint);
+    color: var(--accent);
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .a11y-option-name {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.25;
+  }
+
+  .a11y-option-desc {
+    display: block;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    line-height: 1.3;
+    margin-top: 1px;
+  }
+
+  /* Toggle switch */
+  .a11y-check {
+    display: none;
+  }
+
+  .a11y-switch {
+    position: relative;
+    width: 38px;
+    height: 22px;
+    background: var(--border);
+    border-radius: 12px;
+    flex-shrink: 0;
+    transition: background 0.2s ease;
+  }
+
+  .a11y-switch::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  }
+
+  .a11y-check:checked + .a11y-switch {
+    background: var(--accent);
+  }
+
+  .a11y-check:checked + .a11y-switch::after {
+    transform: translateX(16px);
+  }
+
   /* ── Hamburger menu button ───────────────── */
   .hamburger {
     display: none;
@@ -288,6 +640,16 @@ const currentPath = Astro.url.pathname;
     .theme-toggle {
       width: 36px;
       height: 36px;
+    }
+
+    .a11y-toggle {
+      width: 36px;
+      height: 36px;
+      font-size: 1rem;
+    }
+
+    .a11y-menu {
+      width: 260px;
     }
 
     .hamburger {

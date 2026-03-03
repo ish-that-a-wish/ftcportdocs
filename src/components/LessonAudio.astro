@@ -1,0 +1,354 @@
+---
+interface Props {
+  /** e.g. "lesson-0", "lesson-1" (matches the mp3 filename) */
+  slug: string;
+}
+const { slug } = Astro.props;
+---
+
+<div class="lesson-audio" data-slug={slug}>
+  <button class="listen-btn" id={`listen-${slug}`} aria-label="Listen to this lesson">
+    <svg class="icon-speaker" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+    </svg>
+    <span class="btn-text">Listen to this lesson</span>
+  </button>
+
+  <!-- Audio player (hidden until audio file is playing) -->
+  <div class="audio-player" id={`player-${slug}`} style="display:none;">
+    <audio id={`audio-${slug}`} preload="none"></audio>
+    <button class="player-btn play-pause" aria-label="Play / Pause">
+      <svg class="icon-play" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      <svg class="icon-pause" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+    </button>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill"></div></div>
+      <span class="time-label">0:00</span>
+    </div>
+    <button class="player-btn stop-btn" aria-label="Stop">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="16" height="16" rx="2"></rect></svg>
+    </button>
+  </div>
+
+  <!-- TTS indicator (shown when using browser voice) -->
+  <div class="tts-indicator" id={`tts-${slug}`} style="display:none;">
+    <div class="tts-bar">
+      <div class="tts-pulse"></div>
+      <span class="tts-label">Reading aloud…</span>
+      <button class="player-btn stop-btn" aria-label="Stop reading">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="16" height="16" rx="2"></rect></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('astro:page-load', initLessonAudio);
+  document.addEventListener('DOMContentLoaded', initLessonAudio);
+
+  function initLessonAudio() {
+    document.querySelectorAll<HTMLDivElement>('.lesson-audio').forEach(container => {
+      const slug = container.dataset.slug!;
+      const listenBtn = container.querySelector<HTMLButtonElement>('.listen-btn')!;
+      const playerDiv = container.querySelector<HTMLDivElement>('.audio-player')!;
+      const ttsDiv = container.querySelector<HTMLDivElement>('.tts-indicator')!;
+      const audioEl = container.querySelector<HTMLAudioElement>('audio')!;
+
+      // Prevent double-init
+      if (container.dataset.init) return;
+      container.dataset.init = '1';
+
+      let mode: 'idle' | 'audio' | 'tts' = 'idle';
+
+      listenBtn.addEventListener('click', async () => {
+        if (mode !== 'idle') return;
+
+        // Try loading recorded audio first
+        const audioPath = `/audio/lessons/${slug}.mp3`;
+        const exists = await checkAudioExists(audioPath);
+
+        if (exists) {
+          startAudioPlayer(audioPath);
+        } else {
+          startTTS();
+        }
+      });
+
+      /* ── Audio file player ─────────────────────── */
+      function startAudioPlayer(src: string) {
+        mode = 'audio';
+        listenBtn.style.display = 'none';
+        playerDiv.style.display = 'flex';
+
+        audioEl.src = src;
+        audioEl.play();
+
+        const playIcon = playerDiv.querySelector<SVGElement>('.icon-play')!;
+        const pauseIcon = playerDiv.querySelector<SVGElement>('.icon-pause')!;
+        const progressFill = playerDiv.querySelector<HTMLDivElement>('.progress-fill')!;
+        const timeLabel = playerDiv.querySelector<HTMLSpanElement>('.time-label')!;
+        const playPause = playerDiv.querySelector<HTMLButtonElement>('.play-pause')!;
+        const stopBtn = playerDiv.querySelector<HTMLButtonElement>('.stop-btn')!;
+
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+
+        playPause.onclick = () => {
+          if (audioEl.paused) {
+            audioEl.play();
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'block';
+          } else {
+            audioEl.pause();
+            playIcon.style.display = 'block';
+            pauseIcon.style.display = 'none';
+          }
+        };
+
+        audioEl.ontimeupdate = () => {
+          if (audioEl.duration) {
+            const pct = (audioEl.currentTime / audioEl.duration) * 100;
+            progressFill.style.width = pct + '%';
+            timeLabel.textContent = fmtTime(audioEl.currentTime);
+          }
+        };
+
+        const resetPlayer = () => {
+          audioEl.pause();
+          audioEl.currentTime = 0;
+          audioEl.src = '';
+          playerDiv.style.display = 'none';
+          listenBtn.style.display = 'flex';
+          progressFill.style.width = '0%';
+          timeLabel.textContent = '0:00';
+          playIcon.style.display = 'block';
+          pauseIcon.style.display = 'none';
+          mode = 'idle';
+        };
+
+        stopBtn.onclick = resetPlayer;
+        audioEl.onended = resetPlayer;
+      }
+
+      /* ── TTS fallback ──────────────────────────── */
+      function startTTS() {
+        if (!('speechSynthesis' in window)) {
+          alert('Your browser doesn\'t support text-to-speech. Try Chrome or Edge.');
+          return;
+        }
+
+        mode = 'tts';
+        listenBtn.style.display = 'none';
+        ttsDiv.style.display = 'block';
+
+        // Grab lesson text from the page
+        const pageContainer = document.querySelector('.page-container');
+        if (!pageContainer) return;
+
+        // Collect text from headings, paragraphs, list items, table cells, blockquotes
+        const textNodes = pageContainer.querySelectorAll('h1, h2, h3, h4, p, li, td, blockquote');
+        let text = '';
+        textNodes.forEach(node => {
+          // Skip audio component text
+          if (node.closest('.lesson-audio') || node.closest('.lesson-nav')) return;
+          text += node.textContent?.trim() + '. ';
+        });
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 1;
+        utterance.pitch = 1;
+
+        // Try to pick a good female voice
+        const voices = speechSynthesis.getVoices();
+        const preferred = voices.find(v => v.lang.startsWith('en') && v.name.includes('Female') && v.name.includes('Natural'))
+          || voices.find(v => v.lang.startsWith('en') && v.name.includes('Female'))
+          || voices.find(v => v.lang.startsWith('en') && /zira|jenny|aria|sara|sonia|samantha|karen|fiona|moira|tessa|female/i.test(v.name))
+          || voices.find(v => v.lang.startsWith('en-US') && v.name.includes('Natural'))
+          || voices.find(v => v.lang.startsWith('en-US'))
+          || voices.find(v => v.lang.startsWith('en'));
+        if (preferred) utterance.voice = preferred;
+
+        const stopTTS = () => {
+          speechSynthesis.cancel();
+          ttsDiv.style.display = 'none';
+          listenBtn.style.display = 'flex';
+          mode = 'idle';
+        };
+
+        ttsDiv.querySelector('.stop-btn')!.addEventListener('click', stopTTS, { once: true });
+
+        utterance.onend = stopTTS;
+        utterance.onerror = stopTTS;
+
+        speechSynthesis.speak(utterance);
+      }
+
+      /* ── Helpers ────────────────────────────────── */
+      async function checkAudioExists(url: string): Promise<boolean> {
+        try {
+          const res = await fetch(url, { method: 'HEAD' });
+          return res.ok;
+        } catch {
+          return false;
+        }
+      }
+
+      function fmtTime(sec: number): string {
+        const m = Math.floor(sec / 60);
+        const s = Math.floor(sec % 60);
+        return `${m}:${s.toString().padStart(2, '0')}`;
+      }
+    });
+  }
+</script>
+
+<style>
+  .lesson-audio {
+    margin: 1.25rem 0 2rem;
+  }
+
+  /* ── Listen button ─────────────────────── */
+  .listen-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.15rem;
+    background: var(--accent-faint);
+    color: var(--accent);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .listen-btn:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(109, 40, 217, 0.25);
+  }
+
+  .listen-btn:hover .icon-speaker {
+    stroke: #fff;
+  }
+
+  .listen-btn:active {
+    transform: translateY(0);
+  }
+
+  .icon-speaker {
+    flex-shrink: 0;
+    stroke: var(--accent);
+    transition: stroke 0.2s ease;
+  }
+
+  /* ── Audio file player ─────────────────── */
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 1rem;
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    animation: fadeSlideIn 0.25s ease;
+  }
+
+  .player-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent-faint);
+    color: var(--accent);
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    flex-shrink: 0;
+    padding: 0;
+  }
+
+  .player-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .progress-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .progress-bar {
+    flex: 1;
+    height: 5px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width 0.25s linear;
+  }
+
+  .time-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    min-width: 3.2em;
+  }
+
+  /* ── TTS indicator ─────────────────────── */
+  .tts-indicator {
+    animation: fadeSlideIn 0.25s ease;
+  }
+
+  .tts-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 1rem;
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+  }
+
+  .tts-pulse {
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 1.2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  .tts-label {
+    flex: 1;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  @keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>

@@ -1,11 +1,16 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import LessonNav from '../../components/LessonNav.astro';
+import LessonAudio from '../../components/LessonAudio.astro';
 ---
-<Layout title="Lesson 1.02 — Best Practices">
-  <span class="lesson-badge">Lesson 1.02</span>
-  <h1>Best Practices</h1>
-  
+<Layout title="Lesson 3: Best Practices">
+  <div class="lesson-header">
+    <span class="lesson-badge">Lesson 3</span>
+    <h1>Best Practices</h1>
+    <p class="lesson-subtitle">Essential formatting and writing guidelines for a professional portfolio.</p>
+    <LessonAudio slug="lesson-2" />
+  </div>
+
   <p>
     This lesson covers essential best practices for creating your Engineering Portfolio. 
     Following these guidelines will help you create a professional, easy-to-read document 
@@ -15,12 +20,12 @@ import LessonNav from '../../components/LessonNav.astro';
   <h2>Formatting Guidelines</h2>
   <p>Use consistent formatting throughout your portfolio:</p>
   <ul>
-    <li><strong>Font</strong> — Stick to one or two readable fonts (e.g., Inter, Poppins, Montserrat)</li>
-    <li><strong>Headings</strong> — Use a clear hierarchy: H1 for sections, H2 for sub-sections.</li>
-    <li><strong>Font Size</strong> — 10pt minimum for body text, up to 18pt for headings</li>
-    <li><strong>Line Spacing</strong> — Use 1.15 to 1.5 for readability</li>
-    <li><strong>Margins</strong> — Keep them uniform; 0.5" to 1" is standard</li>
-    <li><strong>Images</strong> — Always include captions and labels</li>
+    <li><strong>Font</strong>: Stick to one or two readable fonts (e.g., Inter, Poppins, Montserrat)</li>
+    <li><strong>Headings</strong>: Use a clear hierarchy: H1 for sections, H2 for sub-sections.</li>
+    <li><strong>Font Size</strong>: 10pt minimum for body text, up to 18pt for headings</li>
+    <li><strong>Line Spacing</strong>: Use 1.15 to 1.5 for readability</li>
+    <li><strong>Margins</strong>: Keep them uniform; 0.5" to 1" is standard</li>
+    <li><strong>Images</strong>: Always include captions and labels</li>
   </ul>
 
   <div class="callout note">
@@ -35,7 +40,7 @@ import LessonNav from '../../components/LessonNav.astro';
     <div class="column do">
       <h4>✅ Do</h4>
       <ul>
-        <li>Use high-resolution images (300 DPI)</li>
+        <li>Use high-resolution images</li>
         <li>Include descriptive captions</li>
         <li>Add labels and arrows</li>
         <li>Show before/after comparisons</li>
@@ -49,7 +54,6 @@ import LessonNav from '../../components/LessonNav.astro';
         <li>Leave images without context</li>
         <li>Overcrowd with too many visuals</li>
         <li>Use inconsistent styling</li>
-        <li>Forget to credit sources</li>
       </ul>
     </div>
   </div>
@@ -82,60 +86,41 @@ import LessonNav from '../../components/LessonNav.astro';
       <tr>
         <td>Tiny fonts</td>
         <td>Strains readers' eyes</td>
-        <td>Use 11pt minimum for body text</td>
+        <td>Use 10pt minimum for body text</td>
       </tr>
+      <tr>
+        <td>Inconsistent formatting</td>
+        <td>Looks unprofessional</td>
+        <td>Use a style guide and stick to it</td>
+      </tr>
+        <tr>
+          <td>Unlabeled images</td>
+          <td>Judges don't understand context</td>
+          <td>Always include captions and labels</td>
+      </tr>
+      <tr>
+        <td>No margins</td>
+        <td>Looks rushed and sloppy</td>
+        <td>Use consistent margins (0.5" to 1")</td>
     </tbody>
   </table>
 
   <h2>Writing Style</h2>
   <p>Your portfolio should be professional but accessible:</p>
   <ul>
-    <li><strong>Active voice</strong> — "We designed a mechanism" not "A mechanism was designed"</li>
-    <li><strong>Concise</strong> — Judges have limited time; get to the point</li>
-    <li><strong>Define terms</strong> — Explain technical terms the first time you use them</li>
-    <li><strong>Use bullet points</strong> — Have lists instead of long paragraphs</li>
+    <li><strong>Active Voice</strong>: "We designed a mechanism" not "A mechanism was designed"</li>
+    <li><strong>Concise</strong>: Judges have limited time; get to the point</li>
+    <li><strong>Define Terms</strong>: Explain technical terms the first time you use them</li>
+    <li><strong>Use Bullet Points</strong>: Have lists instead of long paragraphs</li>
   </ul>
 
   <LessonNav 
     prev={{ title: "General Requirements", href: "/lessons/lesson-1/" }}
-    next={{ title: "Design Process", href: "/lessons/lesson-3/" }}
+    next={{ title: "Team Overview", href: "/lessons/lesson-4/" }}
   />
 </Layout>
 
 <style>
-  .lesson-badge {
-    display: inline-block;
-    padding: 0.35rem 0.75rem;
-    background: var(--accent-faint);
-    color: var(--accent);
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: var(--radius-sm);
-    margin-bottom: 0.5rem;
-  }
-
-  h1 {
-    margin-top: 0.25rem;
-  }
-
-  .callout {
-    padding: 1rem 1.25rem;
-    border-radius: var(--radius-md);
-    margin: 1.5rem 0;
-  }
-
-  .callout.note {
-    background: rgba(59, 130, 246, 0.08);
-    border-left: 3px solid #3b82f6;
-    color: var(--text-secondary);
-  }
-
-  [data-theme="dark"] .callout.note {
-    background: rgba(59, 130, 246, 0.12);
-  }
-
   .two-column {
     display: grid;
     grid-template-columns: 1fr 1fr;

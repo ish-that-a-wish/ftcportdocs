@@ -27,6 +27,13 @@ const pageDesc = frontmatter?.description ?? description;
         var t = localStorage.getItem('theme');
         if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         document.documentElement.setAttribute('data-theme', t);
+        // Restore accessibility settings
+        var a11y = ['a11y-audio','a11y-contrast','a11y-large-text','a11y-reduce-motion','a11y-underlines'];
+        a11y.forEach(function(k) {
+          if (localStorage.getItem(k) === 'true') {
+            document.documentElement.setAttribute('data-' + k, '');
+          }
+        });
       })();
     </script>
   </head>
@@ -46,7 +53,7 @@ const pageDesc = frontmatter?.description ?? description;
 
 <style is:global>
   .page-container {
-    max-width: 780px;
+    max-width: 880px;
     margin: 1.5rem auto;
     padding: 2rem 2.5rem 3rem;
     background: var(--bg-surface);
