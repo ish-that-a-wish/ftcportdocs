@@ -7,21 +7,46 @@ import LessonAudio from '../../components/LessonAudio.astro';
   <div class="lesson-header">
     <span class="lesson-badge">Lesson 1</span>
     <h1>How to Use This Tutorial</h1>
-    <p class="lesson-subtitle">Learn how this tutorial is organized and how to navigate through the lessons.</p>
+    <p class="lesson-subtitle">A quick look at how this tutorial works and how to get around.</p>
     <LessonAudio slug="lesson-0" />
   </div>
 
   <p>
-    This tutorial is designed to help you create an effective Engineering Portfolio for FTC competitions.
+    This tutorial walks you through building a strong Engineering Portfolio for FTC. Here's how it's set up.
   </p>
 
   <h2>Tutorial Structure</h2>
   <p>The lessons are organized into three sections:</p>
-  <ul>
-    <li><strong>Getting Started</strong>: You're here! An intro to how this tutorial works.</li>
-    <li><strong>Good Practices & Requirements</strong>: Foundation lessons on what judges expect.</li>
-    <li><strong>Pages & Documentation</strong>: Step-by-step guides for each portfolio section.</li>
-  </ul>
+
+  <div class="structure-cards">
+    <div class="struct-card">
+      <div class="struct-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div>
+        <strong>Getting Started</strong>
+        <p>You're here! An intro to how this tutorial works.</p>
+      </div>
+    </div>
+    <div class="struct-card">
+      <div class="struct-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <div>
+        <strong>Good Practices &amp; Requirements</strong>
+        <p>Foundation lessons on what judges expect.</p>
+      </div>
+    </div>
+    <div class="struct-card">
+      <div class="struct-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <div>
+        <strong>Pages &amp; Documentation</strong>
+        <p>Step-by-step guides for each portfolio section.</p>
+      </div>
+    </div>
+  </div>
 
   <h2>How to Navigate</h2>
   <p>
@@ -29,29 +54,235 @@ import LessonAudio from '../../components/LessonAudio.astro';
     You can also head to the <a href="/lessons/">Lessons</a> page at any time to jump to a specific lesson.
   </p>
 
-  <h2>Light & Dark Mode</h2>
-  <p>
-    Prefer reading in a darker environment? Click the <strong>sun/moon icon</strong> in the top-right corner of the
-    navigation bar to switch between light and dark mode. Your preference is saved automatically.
-  </p>
+  <h2>Site Features</h2>
 
-  <h2>Accessibility Settings</h2>
-  <p>
-    Next to the theme toggle you'll find an <strong>accessibility icon</strong> (the person figure). Click it to open
-    a menu with options to customize your experience:
-  </p>
-  <ul>
-    <li><strong>Audio Narration</strong>: Turns on a "Listen to this lesson" button at the top of every lesson. If a recorded reading exists it plays that; otherwise your browser reads the lesson text aloud.</li>
-    <li><strong>High Contrast</strong>: Boosts text and background contrast for easier reading.</li>
-    <li><strong>Larger Text</strong>: Increases font sizes across the whole site.</li>
-    <li><strong>Reduce Motion</strong>: Disables animations and transitions.</li>
-    <li><strong>Link Underlines</strong>: Adds underlines to all links so they're easier to spot.</li>
-  </ul>
+  <div class="feature-grid">
+    <div class="feat-card">
+      <div class="feat-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </div>
+      <div>
+        <strong>Light &amp; Dark Mode</strong>
+        <p>Click the sun/moon icon in the top-right corner to switch themes. Your preference is saved automatically.</p>
+      </div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <strong>Accessibility Settings</strong>
+        <p>Click the person icon next to the theme toggle to open the accessibility menu.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Accessibility Options</h3>
+  <div class="a11y-grid">
+    <div class="a11y-item">
+      <span class="a11y-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+      </span>
+      <div>
+        <strong>Audio Narration</strong>
+        <p>Turns on a "Listen to this lesson" button at the top of every lesson.</p>
+      </div>
+    </div>
+    <div class="a11y-item">
+      <span class="a11y-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+      </span>
+      <div>
+        <strong>High Contrast</strong>
+        <p>Boosts text and background contrast for easier reading.</p>
+      </div>
+    </div>
+    <div class="a11y-item">
+      <span class="a11y-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>
+      </span>
+      <div>
+        <strong>Larger Text</strong>
+        <p>Increases font sizes across the whole site.</p>
+      </div>
+    </div>
+    <div class="a11y-item">
+      <span class="a11y-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </span>
+      <div>
+        <strong>Reduce Motion</strong>
+        <p>Disables animations and transitions.</p>
+      </div>
+    </div>
+    <div class="a11y-item">
+      <span class="a11y-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+      </span>
+      <div>
+        <strong>Link Underlines</strong>
+        <p>Adds underlines to all links so they're easier to spot.</p>
+      </div>
+    </div>
+  </div>
+
   <p>All settings are saved in your browser, so they'll still be active the next time you visit.</p>
 
   <LessonNav 
     next={{ title: "General Requirements", href: "/lessons/lesson-1/" }}
   />
 </Layout>
+
+<style>
+  .structure-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin: 1.25rem 0 1.5rem;
+  }
+
+  .struct-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .struct-card:hover {
+    border-color: var(--border-accent);
+    box-shadow: var(--shadow-md);
+  }
+
+  .struct-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--accent-faint);
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .struct-card strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--text-heading);
+    margin-bottom: 0.15rem;
+  }
+
+  .struct-card p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+    margin: 1.25rem 0 1.5rem;
+  }
+
+  .feat-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 1rem 1.15rem;
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .feat-card:hover {
+    border-color: var(--border-accent);
+    box-shadow: var(--shadow-md);
+  }
+
+  .feat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--accent-faint);
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .feat-card strong {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-heading);
+    margin-bottom: 0.2rem;
+  }
+
+  .feat-card > div p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .a11y-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.65rem;
+    margin: 1rem 0 1.5rem;
+  }
+
+  .a11y-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    background: var(--bg-surface-hover);
+    border-radius: var(--radius-sm);
+    transition: background 0.15s ease;
+  }
+
+  .a11y-item:hover {
+    background: var(--accent-faint);
+  }
+
+  .a11y-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: var(--accent-faint);
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .a11y-item strong {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--text-heading);
+    margin-bottom: 0.1rem;
+  }
+
+  .a11y-item p {
+    margin: 0;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 640px) {
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
 
 

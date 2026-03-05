@@ -3,10 +3,10 @@
 
 /* ── Light theme (default) ───────────────────── */
 :root {
-  --bg-page: #f2f0ec;
-  --bg-surface: rgba(255, 255, 255, 0.96);
+  --bg-page: #faf9f7;
+  --bg-surface: rgba(255, 255, 255, 0.98);
   --bg-surface-solid: #ffffff;
-  --bg-surface-hover: #f6f5f3;
+  --bg-surface-hover: #f8f7f5;
   --bg-code: #f5f0ff;
   --bg-pre: #1e1e2e;
   --bg-blockquote: rgba(124, 58, 237, 0.05);
@@ -23,7 +23,7 @@
   --accent-subtle: #c4b5fd;
   --accent-faint: rgba(124, 58, 237, 0.08);
 
-  --border: #c9ced4;
+  --border: #dfdcd9;
   --border-accent: #c4b5fd;
 
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
@@ -34,8 +34,8 @@
   --radius-lg: 16px;
   --radius-xl: 20px;
 
-  --header-bg: rgba(255, 255, 255, 0.96);
-  --header-border: #c9ced4;
+  --header-bg: rgba(255, 255, 255, 0.98);
+  --header-border: #dfdcd9;
   --nav-hover-bg: #f1f5f9;
   --nav-active-bg: #ede9fe;
 

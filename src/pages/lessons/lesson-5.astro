@@ -7,13 +7,13 @@ import LessonAudio from '../../components/LessonAudio.astro';
   <div class="lesson-header">
     <span class="lesson-badge">Lesson 6</span>
     <h1>CAD & Technical Drawings</h1>
-    <p class="lesson-subtitle">How to use CAD effectively in your Engineering Portfolio.</p>
+    <p class="lesson-subtitle">Tips for using CAD to strengthen your Engineering Portfolio.</p>
     <LessonAudio slug="lesson-5" />
   </div>
 
   <p>
-    Computer-Aided Design (CAD) is a powerful tool for documenting your robot design. 
-    This lesson covers how to use CAD effectively in your Engineering Portfolio.
+    Computer-Aided Design (CAD) is a great way to document your robot's design. 
+    Here's how to use it well in your portfolio.
   </p>
 
   <h2>Why CAD Matters</h2>
@@ -57,6 +57,62 @@ import LessonAudio from '../../components/LessonAudio.astro';
     <li><strong>Use consistent colors</strong>: Same part = same color across images</li>
     <li><strong>Include scale</strong>: Add dimensions or reference objects</li>
   </ol>
+
+  <h2>CAD Page Layout Example</h2>
+  <p>Here's how a typical CAD page might look in your portfolio:</p>
+
+  <div class="layout-example">
+    <div class="layout-page">
+      <div class="layout-header">
+        <div class="layout-title-block"></div>
+        <div class="layout-page-num">pg. 5</div>
+      </div>
+      <div class="layout-body">
+        <div class="layout-main-img">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="layout-icon"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          <span class="layout-placeholder">Full Robot CAD &mdash; Isometric View</span>
+        </div>
+        <div class="layout-row">
+          <div class="layout-sub-img">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="layout-icon"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09"/></svg>
+            <span class="layout-placeholder sm">Drivetrain</span>
+          </div>
+          <div class="layout-sub-img">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="layout-icon"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span class="layout-placeholder sm">Arm Detail</span>
+          </div>
+        </div>
+        <div class="layout-caption-lines">
+          <div class="layout-caption-dot"></div>
+          <div class="layout-line w100"></div>
+          <div class="layout-line w80"></div>
+        </div>
+        <div class="layout-text-lines">
+          <div class="layout-line w100"></div>
+          <div class="layout-line w90"></div>
+          <div class="layout-line w60"></div>
+        </div>
+      </div>
+    </div>
+    <div class="layout-annotations">
+      <div class="layout-note">
+        <span class="layout-dot"></span>
+        Large hero CAD render dominates the top half
+      </div>
+      <div class="layout-note">
+        <span class="layout-dot"></span>
+        Detail views focus on specific subsystems
+      </div>
+      <div class="layout-note">
+        <span class="layout-dot"></span>
+        Captions label what judges are looking at
+      </div>
+      <div class="layout-note">
+        <span class="layout-dot"></span>
+        Brief body text explains design rationale
+      </div>
+    </div>
+  </div>
 
   <h2>Show Your CAD Evolution</h2>
   <div class="evolution">
@@ -110,7 +166,7 @@ import LessonAudio from '../../components/LessonAudio.astro';
 
   <LessonNav 
     prev={{ title: "Design Process", href: "/lessons/lesson-3/" }}
-    next={{ title: "More Page Advice", href: "/lessons/lesson-6/" }}
+    next={{ title: "Robot Subsystems & Technical Pages", href: "/lessons/lesson-6/" }}
   />
 </Layout>
 
@@ -237,6 +293,144 @@ import LessonAudio from '../../components/LessonAudio.astro';
     .evo-arrow {
       transform: rotate(90deg);
       justify-content: center;
+    }
+  }
+
+  /* Layout Example */
+  .layout-example {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin: 1rem 0 2rem;
+  }
+  .layout-page {
+    flex: 0 0 260px;
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: .75rem;
+    box-shadow: var(--shadow-md);
+    aspect-ratio: 8.5 / 11;
+  }
+  .layout-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .5rem;
+  }
+  .layout-title-block {
+    width: 60%;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 4px;
+  }
+  .layout-page-num {
+    font-size: .6rem;
+    color: var(--text-muted);
+  }
+  .layout-body {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+  .layout-main-img {
+    height: 110px;
+    background: var(--accent-faint);
+    border: 1px dashed var(--border-accent);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+  .layout-icon {
+    color: var(--accent);
+    opacity: 0.6;
+  }
+  .layout-row {
+    display: flex;
+    gap: .4rem;
+  }
+  .layout-sub-img {
+    flex: 1;
+    height: 60px;
+    background: var(--accent-faint);
+    border: 1px dashed var(--border-accent);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.15rem;
+  }
+  .layout-placeholder {
+    font-size: .55rem;
+    color: var(--accent);
+    font-weight: 600;
+    text-align: center;
+    padding: .25rem;
+  }
+  .layout-placeholder.sm {
+    font-size: .5rem;
+  }
+  .layout-caption-lines {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+    margin-top: .1rem;
+  }
+  .layout-caption-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .layout-text-lines {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    margin-top: .15rem;
+  }
+  .layout-line {
+    height: 4px;
+    background: var(--bg-surface-hover);
+    border-radius: 2px;
+  }
+  .layout-line.w100 { width: 100%; }
+  .layout-line.w90  { width: 90%; }
+  .layout-line.w80  { width: 80%; }
+  .layout-line.w60  { width: 60%; }
+  .layout-annotations {
+    display: flex;
+    flex-direction: column;
+    gap: .65rem;
+    padding-top: .5rem;
+  }
+  .layout-note {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: .85rem;
+    color: var(--text-muted);
+  }
+  .layout-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 500px) {
+    .layout-example {
+      flex-direction: column;
+    }
+    .layout-page {
+      flex: none;
+      width: 100%;
+      aspect-ratio: auto;
     }
   }
 </style>

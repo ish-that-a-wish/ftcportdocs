@@ -22,6 +22,7 @@ const pageDesc = frontmatter?.description ?? description;
     {pageDesc && <meta name="description" content={pageDesc} />}
     <title>{pageTitle}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="28501277-3fab-4f9b-b10d-7df5e90123b8"></script>
     <script is:inline>
       (function() {
         var t = localStorage.getItem('theme');
@@ -38,6 +39,32 @@ const pageDesc = frontmatter?.description ?? description;
     </script>
   </head>
   <body>
+    <div class="beta-banner" id="beta-banner">
+      <span>🚧 This website is currently in beta mode! Please report any issues <a href="https://docs.google.com/forms/d/e/1FAIpQLSd1OdPIsOgO6vRMzhizG8CTM6tqowzYoKg5dYNNfYzpBihdCw/viewform?usp=publish-editor" target="_blank" rel="noopener">here</a>.</span>
+      <button class="banner-close" id="banner-close" aria-label="Dismiss banner">&times;</button>
+    </div>
+    <script>
+      (function() {
+        const banner = document.getElementById('beta-banner');
+        const btn = document.getElementById('banner-close');
+        if (!banner || !btn) return;
+
+        // Already dismissed - hide instantly, no animation
+        if (localStorage.getItem('beta-dismissed')) {
+          banner.classList.add('is-hidden');
+          return;
+        }
+
+        // User clicks close - animate out, then fully hide
+        btn.addEventListener('click', function() {
+          banner.classList.add('is-dismissing');
+          localStorage.setItem('beta-dismissed', '1');
+          banner.addEventListener('animationend', function() {
+            banner.classList.add('is-hidden');
+          }, { once: true });
+        });
+      })();
+    </script>
     <Navbar />
     <main class="page-container">
       <slot />
@@ -52,6 +79,88 @@ const pageDesc = frontmatter?.description ?? description;
 </html>
 
 <style is:global>
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+  }
+
+  .beta-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+    color: #fff;
+    text-align: center;
+    padding: 0.5rem 2.5rem 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    position: sticky;
+    top: 0;
+    z-index: 150;
+    animation: slideDown 0.4s ease-out;
+    transition: opacity 0.3s ease-out;
+  }
+
+  .beta-banner.is-dismissing {
+    animation: slideUp 0.4s ease-out forwards;
+    pointer-events: none;
+  }
+
+  .beta-banner.is-hidden {
+    display: none !important;
+  }
+
+  .banner-close {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    opacity: 0.8;
+    transition: opacity 0.15s ease, background 0.15s ease;
+  }
+
+  .banner-close:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .beta-banner a {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .beta-banner a:hover {
+    color: #e0d5ff;
+  }
+
   .page-container {
     max-width: 880px;
     margin: 1.5rem auto;

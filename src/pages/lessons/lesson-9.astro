@@ -3,6 +3,702 @@ import Layout from '../../layouts/Layout.astro';
 import LessonNav from '../../components/LessonNav.astro';
 import LessonAudio from '../../components/LessonAudio.astro';
 ---
-<Layout>
-  Coming Soon.
-  </Layout>
+<Layout title="Lesson 10: Spotlight Pages">
+  <div class="lesson-header">
+    <span class="lesson-badge">Lesson 10</span>
+    <h1>Spotlight Pages</h1>
+    <p class="lesson-subtitle">Dedicate a page to something cool about your team and make it stand out.</p>
+    <LessonAudio slug="lesson-9" />
+  </div>
+
+  <p>
+    Spotlight pages are where you go deep on one specific thing your team did that you're proud of.
+    It could be a mechanism, an outreach event, a cool initiative, a design challenge you solved, 
+    or really anything that makes your team unique. These pages give judges a closer look at what 
+    sets you apart.
+  </p>
+
+  <!-- What is a Spotlight Page -->
+  <div class="intro-card">
+    <div class="intro-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    </div>
+    <div>
+      <h2 style="margin-top:0;">What's a Spotlight Page?</h2>
+      <p style="margin-bottom:0;">
+        A <strong>single page</strong> dedicated to one topic that deserves extra attention. Instead of cramming 
+        it into another section, you give it room to breathe with photos, details, and context that 
+        really show off the work.
+      </p>
+    </div>
+  </div>
+
+  <!-- What You Can Spotlight -->
+  <h2>What You Can Spotlight</h2>
+  <p>Pretty much anything your team is proud of. Here are some ideas:</p>
+  <div class="ideas-grid">
+    <div class="idea-card">
+      <span class="idea-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+      </span>
+      <strong>A Mechanism</strong>
+      <span class="idea-desc">Your intake, launcher, climb system, or any standout subsystem</span>
+    </div>
+    <div class="idea-card">
+      <span class="idea-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </span>
+      <strong>An Outreach Event</strong>
+      <span class="idea-desc">A workshop you ran, a demo day, mentoring younger teams</span>
+    </div>
+    <div class="idea-card">
+      <span class="idea-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </span>
+      <strong>A Team Initiative</strong>
+      <span class="idea-desc">Mentorship program, team training system, new member onboarding</span>
+    </div>
+    <div class="idea-card">
+      <span class="idea-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </span>
+      <strong>A Design Challenge</strong>
+      <span class="idea-desc">A hard problem you solved, multiple iterations, before/after</span>
+    </div>
+    <div class="idea-card">
+      <span class="idea-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </span>
+      <strong>Software Feature</strong>
+      <span class="idea-desc">Computer vision pipeline, custom path planning, dashboard tool</span>
+    </div>
+    <div class="idea-card">
+      <span class="idea-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </span>
+      <strong>Something Unique</strong>
+      <span class="idea-desc">Custom field element, 3D printing setup, team branding system</span>
+    </div>
+  </div>
+
+  <!-- Layout Tips -->
+  <h2>How to Lay Out a Spotlight Page</h2>
+  <p>There's no single right way to do it, but here are a few proven formats:</p>
+
+  <div class="layout-tips">
+    <div class="layout-tip">
+      <span class="tip-num">1</span>
+      <div>
+        <strong>Hero Photo + Story</strong>
+        <span class="tip-desc">Lead with one big, high-quality photo at the top. Below it, write a short paragraph about what it is, why it matters, and what went into it. Keep the text tight.</span>
+      </div>
+    </div>
+    <div class="layout-tip">
+      <span class="tip-num">2</span>
+      <div>
+        <strong>Before & After</strong>
+        <span class="tip-desc">Show two images side by side (or top/bottom) with captions. Great for design iterations, outreach growth, or mechanism revisions.</span>
+      </div>
+    </div>
+    <div class="layout-tip">
+      <span class="tip-num">3</span>
+      <div>
+        <strong>Photo Grid + Callouts</strong>
+        <span class="tip-desc">Use 3-4 photos in a grid and add small labels or annotations. Works well for events where you want to show the scope of what happened.</span>
+      </div>
+    </div>
+    <div class="layout-tip">
+      <span class="tip-num">4</span>
+      <div>
+        <strong>Timeline Strip</strong>
+        <span class="tip-desc">Show how something evolved over time with a few milestones. Good for mechanisms that went through multiple versions or events you ran more than once.</span>
+      </div>
+    </div>
+    <div class="layout-tip">
+      <span class="tip-num">5</span>
+      <div>
+        <strong>Stats + Visuals</strong>
+        <span class="tip-desc">Lead with a few key numbers (hours spent, people reached, iterations tested) and back them up with photos and a brief explanation.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sample Layouts -->
+  <h2>Example Layouts</h2>
+  <p>Here are three common spotlight page formats you can adapt:</p>
+
+  <div class="samples-row">
+    <!-- Layout A: Hero Photo + Story -->
+    <div class="sample-wrap">
+      <div class="sample-page">
+        <div class="sp-header">Mechanism Spotlight</div>
+        <div class="sp-body">
+          <div class="sp-hero-img"></div>
+          <div class="sp-title-line"></div>
+          <div class="sp-text-block">
+            <div class="sp-line"></div>
+            <div class="sp-line" style="width:90%;"></div>
+            <div class="sp-line" style="width:75%;"></div>
+          </div>
+          <div class="sp-stats-row">
+            <div class="sp-stat">
+              <span class="sp-stat-num">3</span>
+              <span class="sp-stat-label">Iterations</span>
+            </div>
+            <div class="sp-stat">
+              <span class="sp-stat-num">2.1s</span>
+              <span class="sp-stat-label">Cycle Time</span>
+            </div>
+            <div class="sp-stat">
+              <span class="sp-stat-num">40+</span>
+              <span class="sp-stat-label">Hours</span>
+            </div>
+          </div>
+          <div class="sp-text-block">
+            <div class="sp-line" style="width:85%;"></div>
+            <div class="sp-line" style="width:60%;"></div>
+          </div>
+        </div>
+      </div>
+      <span class="sample-label">Hero Photo + Story</span>
+    </div>
+
+    <!-- Layout B: Before & After -->
+    <div class="sample-wrap">
+      <div class="sample-page">
+        <div class="sp-header">Design Evolution</div>
+        <div class="sp-body">
+          <div class="sp-title-line"></div>
+          <div class="sp-compare-row">
+            <div class="sp-compare-col">
+              <div class="sp-compare-img before"></div>
+              <span class="sp-compare-label">V1 - Prototype</span>
+            </div>
+            <div class="sp-compare-arrow">&#8594;</div>
+            <div class="sp-compare-col">
+              <div class="sp-compare-img after"></div>
+              <span class="sp-compare-label">V3 - Final</span>
+            </div>
+          </div>
+          <div class="sp-callout">
+            <div class="sp-callout-dot"></div>
+            <div class="sp-text-block" style="flex:1;">
+              <div class="sp-line"></div>
+              <div class="sp-line" style="width:80%;"></div>
+            </div>
+          </div>
+          <div class="sp-callout">
+            <div class="sp-callout-dot"></div>
+            <div class="sp-text-block" style="flex:1;">
+              <div class="sp-line" style="width:90%;"></div>
+              <div class="sp-line" style="width:65%;"></div>
+            </div>
+          </div>
+          <div class="sp-text-block">
+            <div class="sp-line" style="width:75%;"></div>
+          </div>
+        </div>
+      </div>
+      <span class="sample-label">Before & After</span>
+    </div>
+
+    <!-- Layout C: Photo Grid + Callouts -->
+    <div class="sample-wrap">
+      <div class="sample-page">
+        <div class="sp-header">Outreach Event</div>
+        <div class="sp-body">
+          <div class="sp-title-line"></div>
+          <div class="sp-photo-grid">
+            <div class="sp-grid-img"></div>
+            <div class="sp-grid-img"></div>
+            <div class="sp-grid-img"></div>
+            <div class="sp-grid-img"></div>
+          </div>
+          <div class="sp-stats-row">
+            <div class="sp-stat">
+              <span class="sp-stat-num">120</span>
+              <span class="sp-stat-label">Attendees</span>
+            </div>
+            <div class="sp-stat">
+              <span class="sp-stat-num">5</span>
+              <span class="sp-stat-label">Stations</span>
+            </div>
+            <div class="sp-stat">
+              <span class="sp-stat-num">8hr</span>
+              <span class="sp-stat-label">Duration</span>
+            </div>
+          </div>
+          <div class="sp-text-block">
+            <div class="sp-line"></div>
+            <div class="sp-line" style="width:85%;"></div>
+            <div class="sp-line" style="width:70%;"></div>
+          </div>
+        </div>
+      </div>
+      <span class="sample-label">Photo Grid + Stats</span>
+    </div>
+  </div>
+
+  <!-- Writing Tips -->
+  <h2>Writing Tips</h2>
+  <div class="writing-grid">
+    <div class="writing-card">
+      <span class="writing-num">1</span>
+      <div>
+        <strong>Be Specific</strong>
+        <span class="writing-desc">Don't say "we improved our intake." Say "we reduced jam rate from 40% to under 5% by adding a compliant roller."</span>
+      </div>
+    </div>
+    <div class="writing-card">
+      <span class="writing-num">2</span>
+      <div>
+        <strong>Include Numbers</strong>
+        <span class="writing-desc">Hours spent, people involved, versions tested, speed improvements. Numbers make your work feel real.</span>
+      </div>
+    </div>
+    <div class="writing-card">
+      <span class="writing-num">3</span>
+      <div>
+        <strong>Show the Problem First</strong>
+        <span class="writing-desc">Explain what wasn't working before you explain how you fixed it. This gives judges context and makes your solution more impressive.</span>
+      </div>
+    </div>
+    <div class="writing-card">
+      <span class="writing-num">4</span>
+      <div>
+        <strong>Let Photos Do Work</strong>
+        <span class="writing-desc">One great photo with a caption often says more than a paragraph. Don't over-explain things you can show visually.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Typical Length -->
+  <div class="length-card">
+    <div class="length-header">
+      <span class="length-label">Typical Length</span>
+      <span class="length-badge">1 page each</span>
+    </div>
+    <p style="margin:.5rem 0 0;">
+      Keep each spotlight to <strong>one page</strong>. The goal is to go deeper on one thing, not to 
+      write an essay. If you have room in your portfolio, you can include multiple spotlight pages 
+      on different topics.
+    </p>
+  </div>
+
+  <!-- Remember -->
+  <div class="remember-card">
+    <div class="remember-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    </div>
+    <div>
+      <strong style="font-size:1.05rem;">Pick What You're Proudest Of</strong>
+      <p style="margin:.35rem 0 0;">
+        Don't force a spotlight page for the sake of having one. Pick something your team genuinely 
+        cares about and let that energy come through. Judges can tell when a team is excited about 
+        their work.
+      </p>
+    </div>
+  </div>
+
+  <LessonNav 
+    prev={{ title: "Business & Community Impact", href: "/lessons/lesson-8/" }}
+  />
+</Layout>
+
+<style>
+  /* Intro hero card */
+  .intro-card {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .intro-card:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md);
+  }
+  .intro-icon {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-faint);
+    border-radius: var(--radius-sm);
+    color: var(--accent);
+  }
+
+  /* Ideas grid */
+  .ideas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 2rem;
+  }
+  .idea-card {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    transition: border-color .2s, box-shadow .2s, transform .2s;
+  }
+  .idea-card:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+  .idea-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-faint);
+    border-radius: var(--radius-sm);
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .idea-desc {
+    font-size: .92rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* Layout tips */
+  .layout-tips {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    margin: 1rem 0 2rem;
+  }
+  .layout-tip {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.15rem 1.25rem;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .layout-tip:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md);
+  }
+  .tip-num {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: .95rem;
+  }
+  .layout-tip div {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+  }
+  .tip-desc {
+    font-size: .9rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+  }
+
+  /* Sample layout pages */
+  .samples-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+    margin: 1.25rem 0 2rem;
+  }
+  .sample-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+  }
+  .sample-label {
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-align: center;
+  }
+  .sample-page {
+    width: 100%;
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    aspect-ratio: 8.5 / 11;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Shared sample-page internals */
+  .sp-header {
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 0.35rem 0.6rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .sp-body {
+    padding: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    flex: 1;
+  }
+  .sp-hero-img {
+    width: 100%;
+    height: 0;
+    padding-bottom: 45%;
+    background: var(--accent-faint);
+    border: 1.5px dashed var(--border-accent);
+    border-radius: var(--radius-sm);
+  }
+  .sp-title-line {
+    height: 7px;
+    width: 55%;
+    background: var(--text-heading);
+    border-radius: 3px;
+    opacity: .25;
+  }
+  .sp-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.18rem;
+  }
+  .sp-line {
+    height: 4px;
+    background: var(--bg-surface-hover);
+    border-radius: 3px;
+    width: 100%;
+  }
+  .sp-stats-row {
+    display: flex;
+    gap: 0.35rem;
+    justify-content: center;
+  }
+  .sp-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.05rem;
+    padding: 0.25rem 0.5rem;
+    background: var(--accent-faint);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-sm);
+    flex: 1;
+  }
+  .sp-stat-num {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--accent);
+  }
+  .sp-stat-label {
+    font-size: 0.4rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: .03em;
+  }
+
+  /* Before & After compare */
+  .sp-compare-row {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .sp-compare-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+  }
+  .sp-compare-img {
+    width: 100%;
+    height: 0;
+    padding-bottom: 70%;
+    border-radius: var(--radius-sm);
+    border: 1.5px dashed var(--border);
+  }
+  .sp-compare-img.before {
+    background: var(--bg-surface-hover);
+    border-color: var(--border);
+  }
+  .sp-compare-img.after {
+    background: var(--accent-faint);
+    border-color: var(--border-accent);
+  }
+  .sp-compare-label {
+    font-size: 0.42rem;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+  .sp-compare-arrow {
+    font-size: 0.7rem;
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .sp-callout {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+  .sp-callout-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  /* Photo grid */
+  .sp-photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem;
+  }
+  .sp-grid-img {
+    width: 100%;
+    height: 0;
+    padding-bottom: 70%;
+    background: var(--accent-faint);
+    border: 1.5px dashed var(--border-accent);
+    border-radius: var(--radius-sm);
+  }
+
+  /* Writing tips */
+  .writing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 2rem;
+  }
+  .writing-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.15rem 1.25rem;
+    transition: border-color .2s, box-shadow .2s, transform .2s;
+  }
+  .writing-card:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+  .writing-num {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: .95rem;
+  }
+  .writing-card div {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+  }
+  .writing-desc {
+    font-size: .9rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+  }
+
+  /* Length card */
+  .length-card {
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin: 0 0 2rem;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .length-card:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md);
+  }
+  .length-header {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    flex-wrap: wrap;
+  }
+  .length-label {
+    font-weight: 600;
+    font-size: 1.05rem;
+  }
+  .length-badge {
+    display: inline-flex;
+    align-items: center;
+    background: var(--accent);
+    color: #fff;
+    padding: .25rem .85rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: .92rem;
+  }
+
+  /* Remember highlight */
+  .remember-card {
+    display: flex;
+    gap: 1.15rem;
+    align-items: flex-start;
+    background: linear-gradient(135deg, var(--accent-faint), transparent 60%);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin: 0 0 2rem;
+  }
+  .remember-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    border-radius: var(--radius-sm);
+    color: #fff;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .intro-card,
+    .remember-card { flex-direction: column; }
+    .ideas-grid,
+    .writing-grid { grid-template-columns: 1fr; }
+    .samples-row { grid-template-columns: 1fr; }
+    .sample-page { max-width: 260px; margin: 0 auto; }
+  }
+</style>
