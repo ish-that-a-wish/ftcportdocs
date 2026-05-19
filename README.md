@@ -1,46 +1,20 @@
-# Astro Starter Kit: Basics
+##  FTC Port Docs (BETA)
 
-```sh
-npm create astro@latest -- --template basics
-```
+An interactive web application built with **Astro** to help FIRST Tech Challenge (FTC) teams learn the core mechanics, layout rules, and strategies for building award-winning engineering portfolios.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+ **Live Demo at** [ftcportdocs.netlify.app](https://ftcportdocs.netlify.app/)
 
-## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+### Contributing
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+We welcome feedback, issue reports, and pull requests from fellow FTC teams and mentors! 
+1. **Fork** the repository.
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`).
+4. **Push** to the branch (`git push origin feature/AmazingFeature`).
+5. Open a **Pull Request**.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+---
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Disclaimer
+*This project is an unofficial community resource developed for FTC teams. It is not officially endorsed, affiliated with, or sponsored by FIRST®.*
